@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Karla&display=swap"
+      rel="stylesheet"
+    />
+    <title><thai-tech-calendar /></title>
+    <style>
+      body {
+        background: rgb(17, 17, 17);
+      }
+      h1 {
+        font-family: "Karla", sans-serif;
+        color: rgb(55, 186, 251);
+      }
+      .header-container {
+        width: 100%;
+        display: -webkit-flex;
+        display: flex;
+      }
+      .header-item {
+        width: 50%;
+        color: rgb(55, 186, 251);
+        align-content: center;
+      }
+      .how-to-add {
+        text-align: right;
+        padding-top: 35px;
+      }
+      #how-to-add-link {
+        font-family: "Karla", sans-serif;
+        color: #fff;
+        padding: 10px;
+        background: rgb(55, 186, 251);
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .footer {
+        padding: 20px;
+        text-align: center;
+        font-family: "Karla", sans-serif;
+        color: #fff;
+      }
+      #instruction {
+        font-family: "Karla", sans-serif;
+        color: #fff;
+        padding: 10px;
+        border: rgb(55, 186, 251) 2px solid;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        display: none;
+      }
+      #instruction li {
+        padding: 5px;
+      }
+      .email {
+        color: rgb(55, 186, 251);
+        font-weight: bold;
+      }
+      @media (min-width: 320px) and (max-width: 480px) {
+        h1 {
+          font-size: 15px;
+        }
+        #how-to-add-link {
+          font-size: 10px;
+        }
+        .how-to-add {
+          padding-top: 8px;
+        }
+        #instruction {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="header-item"><h1>&#x3C;thai-tech-calendar /&#x3E;</h1></div>
+      <div class="header-item how-to-add">
+        <a href="#" id="how-to-add-link">How to add my event?</a>
+      </div>
+    </div>
+    <div id="instruction">
+      <ol>
+        <li>
+          Create event with your caledar service e.g. Google Calendar, Outlook
+        </li>
+        <li>
+          Invite email <span class="email">tech.cal.th@gmail.com</span> to your
+          event
+        </li>
+        <li><strong>DONE!!!!</strong></li>
+      </ol>
+    </div>
+    <div
+      data-tockify-component="mini"
+      data-tockify-calendar="techcalendar.th"
+    ></div>
+    <script
+      data-cfasync="false"
+      data-tockify-script="embed"
+      src="https://public.tockify.com/browser/embed.js"
+    ></script>
+    <div class="footer">Build with 🧡 by @thangman22</div>
+    <script>
+      document
+        .getElementById("how-to-add-link")
+        .addEventListener("click", e => {
+          e.preventDefault();
+          let instructionDisplay = document.getElementById("instruction").style
+            .display;
+          if (instructionDisplay === "block") {
+            document.getElementById("instruction").style.display = "none";
+          } else {
+            document.getElementById("instruction").style.display = "block";
+          }
+        });
+    </script>
+  </body>
+</html>
