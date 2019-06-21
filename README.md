@@ -1,6 +1,6 @@
 # th.techcal.dev
 
-repo for Calendar of thailand tech meetup and event.
+Repo for Calendar of thailand tech meetup and event.
 
 ## How to add event?
 1. Create event with your caledar service e.g. Google Calendar, Outlook
