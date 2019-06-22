@@ -62,6 +62,12 @@
         color: rgb(55, 186, 251);
         font-weight: bold;
       }
+      .image-demo {
+        text-align: center;
+      }
+      .image-demo > img {
+        max-width: 100%;
+      }
       @media (min-width: 320px) and (max-width: 480px) {
         h1 {
           font-size: 15px;
@@ -82,20 +88,27 @@
     <div class="header-container">
       <div class="header-item"><h1>&#x3C;thai-tech-calendar /&#x3E;</h1></div>
       <div class="header-item how-to-add">
-        <a href="#" id="how-to-add-link">How to add my event?</a>
+        <a href="#" id="how-to-add-link">เพิ่ม Event ยังไง?</a>
       </div>
     </div>
     <div id="instruction">
+      <h2>เพิ่ม Event ยังไง?</h2>
       <ol>
         <li>
-          Create event with your caledar service e.g. Google Calendar, Outlook
+          สร้าง event ใน caledar ของตัวเอง ที่ไหนก็ได้ เช่น Google Calendar,
+          Outlook, MacOs Calendar
         </li>
         <li>
-          Invite email <span class="email">tech.cal.th@gmail.com</span> to your
-          event
+          Invite อีเมล <span class="email">tech.cal.th@gmail.com</span> เข้าไปใน
+          Event
         </li>
-        <li><strong>DONE!!!!</strong></li>
+        <li><strong>เสร็จ เรียบร้อย!!!!</strong></li>
       </ol>
+      ไม่ขอรับ Training event, Private event, หรือ Event ที่ไม่เกี่ยวกับ Tech
+      นะครับ
+      <div class="image-demo">
+        <img src="./img/demo.png" />
+      </div>
     </div>
     <div
       data-tockify-component="mini"
