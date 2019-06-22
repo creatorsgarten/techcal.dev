@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="manifest" href="/manifest.json" />
     <link
       href="https://fonts.googleapis.com/css?family=Karla&display=swap"
       rel="stylesheet"
@@ -236,7 +237,7 @@
         href="https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics"
         >https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics</a
       >
-      <br />
+      <br /><br />
       Build with 🧡 by
       <a href="http://twitter.com/thangman22" class="username-link"
         >@thangman22</a
@@ -256,7 +257,16 @@
           }
         });
     </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->`
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"
