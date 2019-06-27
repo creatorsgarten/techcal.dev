@@ -1,4 +1,12 @@
 var dialog = null;
+
+const calendars = [
+  {
+    googleCalendarId: "tech.cal.th@gmail.com",
+    className: "thai-tech-cal"
+  }
+];
+
 document.addEventListener("DOMContentLoaded", function() {
   dialog = document.querySelector("dialog");
   dialogPolyfill.registerDialog(dialog);
@@ -43,17 +51,12 @@ const loadCalendar = () => {
   let calendar = new FullCalendar.Calendar(calendarEl, {
     plugins: ["dayGrid", "googleCalendar", "list"],
     googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
-    height: 600,
-    eventSources: [
-      {
-        googleCalendarId: "tech.cal.th@gmail.com",
-        className: "thai-tech-cal"
-      }
-    ],
+    height: 560,
+    eventSources: calendars,
     header: {
       left: "prev,next today",
       center: "title",
-      right: "dayGridMonth,listWeek"
+      right: "dayGridMonth,dayGridWeek,listWeek"
     },
     eventClick: function(info) {
       document.getElementById("event-header").innerHTML = info.event.title;

@@ -1,3 +1,7 @@
+.thai-tech-cal {
+  background: rgb(55, 186, 251) !important;
+}
+
 dialog {
   width: 85% !important;
   background: rgb(17, 17, 17) !important;
@@ -46,8 +50,8 @@ dialog #dialog-close {
   padding-top: 10px;
 }
 .fc-today {
-  color: rgb(16, 16, 18);
-  background: rgb(55, 186, 251) !important;
+  color: #fff;
+  background: rgba(55, 186, 251) !important;
 }
 .fc-unthemed .fc-content,
 .fc-unthemed .fc-divider,
