@@ -27,12 +27,14 @@
     <link href="js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
     <link href="js/fullcalendar/list/main.min.css" rel="stylesheet" />
     <link href="js/fullcalendar/timegrid/main.css" rel="stylesheet" />
+
     <script src="js/fullcalendar/core/main.min.js"></script>
     <script src="js/fullcalendar/core/locales/th.js"></script>
     <script src="js/fullcalendar/daygrid/main.min.js"></script>
     <script src="js/fullcalendar/google-calendar/main.min.js"></script>
     <script src="js/fullcalendar/list/main.min.js"></script>
     <link href="css/main.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/9183e348c4.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.js"
       integrity="sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM="
@@ -155,7 +157,14 @@
         </li>
       </ol>
     </div>
-    <dialog>I'm a dialog </dialog>
+    <dialog>
+      <div id="dialog-close"><i class="fas fa-times"></i></div>
+      <h1 id="event-header"></h1>
+      <p id="event-date"></p>
+      <p id="event-location"></p>
+      <p id="event-description"></p>
+      <p id="event-link"></p>
+    </dialog>
     <div id="calendar"></div>
     <!-- <div
       data-tockify-component="mini"

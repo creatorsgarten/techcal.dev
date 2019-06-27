@@ -1,27 +1,14 @@
+var dialog = null;
 document.addEventListener("DOMContentLoaded", function() {
-  var calendarEl = document.getElementById("calendar");
-  var dialog = document.querySelector("dialog");
+  dialog = document.querySelector("dialog");
   dialogPolyfill.registerDialog(dialog);
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: ["dayGrid", "googleCalendar", "list"],
-    googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
-    height: 600,
-    events: {
-      googleCalendarId: "tech.cal.th@gmail.com"
-    },
-    header: {
-      left: "prev,next today",
-      center: "title",
-      right: "dayGridMonth,listWeek"
-    },
-    eventClick: function(info) {
-      console.log(info);
-      dialog.showModal();
-      info.jsEvent.preventDefault();
-    }
-  });
+  loadCalendar();
+  loadServiceWorker();
+  loadGoogleAnalytics();
+});
 
-  calendar.render();
+document.getElementById("dialog-close").addEventListener("click", e => {
+  dialog.close();
 });
 
 document.getElementById("how-to-add-link").addEventListener("click", e => {
@@ -34,19 +21,94 @@ document.getElementById("how-to-add-link").addEventListener("click", e => {
   }
 });
 
-// Check that service workers are supported
-if ("serviceWorker" in navigator) {
-  // Use the window load event to keep the page load performant
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js");
-  });
-}
+const loadGoogleAnalytics = () => {
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-99894003-2");
+};
 
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
-gtag("js", new Date());
-gtag("config", "UA-99894003-2");
+const loadServiceWorker = () => {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js");
+    });
+  }
+};
+
+const loadCalendar = () => {
+  let calendarEl = document.getElementById("calendar");
+  let calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: ["dayGrid", "googleCalendar", "list"],
+    googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
+    height: 600,
+    eventSources: [
+      {
+        googleCalendarId: "tech.cal.th@gmail.com",
+        className: "thai-tech-cal"
+      }
+    ],
+    header: {
+      left: "prev,next today",
+      center: "title",
+      right: "dayGridMonth,listWeek"
+    },
+    eventClick: function(info) {
+      document.getElementById("event-header").innerHTML = info.event.title;
+      document.getElementById(
+        "event-date"
+      ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${info.event.start} - ${
+        info.event.end
+      }`;
+      document.getElementById(
+        "event-location"
+      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> ${
+        info.event._def.extendedProps.location
+      }`;
+      document.getElementById("event-description").innerHTML = `${linkify(
+        info.event._def.extendedProps.description
+      )}`;
+
+      document.getElementById(
+        "event-link"
+      ).innerHTML = `<i class="fas fa-link"></i> <a href="${
+        info.event.url
+      }" target="_blank">${info.event.url}</a>`;
+
+      dialog.showModal();
+      info.jsEvent.preventDefault();
+    }
+  });
+  calendar.render();
+};
+
+const linkify = inputText => {
+  var replacedText, replacePattern1, replacePattern2, replacePattern3;
+
+  //URLs starting with http://, https://, or ftp://
+  replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+  replacedText = inputText.replace(
+    replacePattern1,
+    '<a href="$1" target="_blank">$1</a>'
+  );
+
+  //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+  replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+  replacedText = replacedText.replace(
+    replacePattern2,
+    '$1<a href="http://$2" target="_blank">$2</a>'
+  );
+
+  //Change email addresses to mailto:: links.
+  replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+  replacedText = replacedText.replace(
+    replacePattern3,
+    '<a href="mailto:$1">$1</a>'
+  );
+
+  return replacedText;
+};
 
 // Now dialog acts like a native <dialog>.

@@ -1,3 +1,23 @@
+dialog {
+  width: 85% !important;
+  background: rgb(17, 17, 17) !important;
+  color: #fff !important;
+  border: none !important;
+}
+dialog p {
+  font-size: 14px;
+}
+dialog p a {
+  color: rgb(55, 186, 251) !important;
+}
+
+dialog #dialog-close {
+  color: #fff !important;
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 .fc-list-heading td {
   background: none !important;
 }
