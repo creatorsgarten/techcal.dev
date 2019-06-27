@@ -23,96 +23,30 @@
       property="og:description"
       content="อยากรู้ว่า เร็วๆนี้มี Tech event, Tech Meetup อะไรรอบๆตัวบ้าง เข้ามาดูเลย "
     />
-    <title><thai-tech-calendar /></title>
-    <style>
-      body {
-        background: rgb(17, 17, 17);
-      }
-      h1 {
-        font-family: "Karla", sans-serif;
-        color: rgb(55, 186, 251);
-      }
-      .header-container {
-        width: 100%;
-        display: -webkit-flex;
-        display: flex;
-      }
-      .header-item {
-        width: 50%;
-        color: rgb(55, 186, 251);
-        align-content: center;
-      }
-      .how-to-add {
-        text-align: right;
-        padding-top: 35px;
-      }
+    <link href="js/fullcalendar/core/main.min.css" rel="stylesheet" />
+    <link href="js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
+    <link href="js/fullcalendar/list/main.min.css" rel="stylesheet" />
+    <link href="js/fullcalendar/timegrid/main.css" rel="stylesheet" />
 
-      #how-to-add-link {
-        font-family: "Karla", sans-serif;
-        color: #fff;
-        padding: 10px;
-        margin-right: 40px;
-        background: rgb(55, 186, 251);
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      #github-link {
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .footer {
-        padding: 20px;
-        text-align: center;
-        font-family: "Karla", sans-serif;
-        color: #fff;
-      }
-      #instruction {
-        font-family: "Karla", sans-serif;
-        color: #fff;
-        padding: 10px;
-        border: rgb(55, 186, 251) 2px solid;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        display: none;
-      }
-      #instruction li {
-        padding: 5px;
-      }
-      .blue {
-        color: rgb(55, 186, 251);
-        font-weight: bold;
-      }
-      .image-demo {
-        text-align: center;
-      }
-      .image-demo > img {
-        max-width: 100%;
-      }
-      .footer > a {
-        color: rgb(55, 186, 251);
-      }
-      .slogan {
-        text-align: center;
-        padding: 5px;
-        font-family: "Karla", sans-serif;
-        color: #fff;
-      }
-      @media (min-width: 320px) and (max-width: 480px) {
-        h1 {
-          font-size: 15px;
-        }
-        #how-to-add-link {
-          font-size: 10px;
-        }
-        .how-to-add {
-          padding-top: 8px;
-        }
-        #instruction {
-          margin-top: 10px;
-        }
-      }
-    </style>
+    <script src="js/fullcalendar/core/main.min.js"></script>
+    <script src="js/fullcalendar/core/locales/th.js"></script>
+    <script src="js/fullcalendar/daygrid/main.min.js"></script>
+    <script src="js/fullcalendar/google-calendar/main.min.js"></script>
+    <script src="js/fullcalendar/list/main.min.js"></script>
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/9183e348c4.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.js"
+      integrity="sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.css"
+      integrity="sha256-qVjBFbunjrWQ4IikV5dkK1ziW9XKskisX1rUbCIJEhk="
+      crossorigin="anonymous"
+    />
+    <title><thai-tech-calendar /></title>
   </head>
   <body>
     <a
@@ -223,7 +157,16 @@
         </li>
       </ol>
     </div>
-    <div
+    <dialog>
+      <div id="dialog-close"><i class="fas fa-times"></i></div>
+      <h1 id="event-header"></h1>
+      <p id="event-date"></p>
+      <p id="event-location"></p>
+      <p id="event-description"></p>
+      <p id="event-link"></p>
+    </dialog>
+    <div id="calendar"></div>
+    <!-- <div
       data-tockify-component="mini"
       data-tockify-calendar="techcalendar.th"
     ></div>
@@ -231,11 +174,12 @@
       data-cfasync="false"
       data-tockify-script="embed"
       src="https://public.tockify.com/browser/embed.js"
-    ></script>
+    ></script> -->
 
     <div class="footer">
-      Ical:
-      <a style="word-break: break-word;"
+      Thai Tech Cal:
+      <a
+        style="word-break: break-word;"
         href="https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics"
         >https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics</a
       >
@@ -245,42 +189,13 @@
         >@thangman22</a
       >
     </div>
-    <script>
-      document
-        .getElementById("how-to-add-link")
-        .addEventListener("click", e => {
-          e.preventDefault();
-          let instructionDisplay = document.getElementById("instruction").style
-            .display;
-          if (instructionDisplay === "block") {
-            document.getElementById("instruction").style.display = "none";
-          } else {
-            document.getElementById("instruction").style.display = "block";
-          }
-        });
-    </script>
-    <script>
-      // Check that service workers are supported
-      if ("serviceWorker" in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/service-worker.js");
-        });
-      }
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->`
+
+    <script src="js/main.js"></script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "UA-99894003-2");
-    </script>
+    <script></script>
   </body>
 </html>

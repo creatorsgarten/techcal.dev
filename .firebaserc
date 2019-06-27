@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "techcal-th"
+  },
+  "targets": {
+    "techcal-th": {
+      "hosting": {
+        "thailand": [
+          "techcal-th"
+        ]
+      }
+    }
+  }
+}
