@@ -10,4 +10,4 @@ Repo for techcal.dev if you want your country's version just do PR and modify te
 
 1. Open issue for your location
 2. fork repo and create your location folder
-3. Open Pull Request. I will add you to firebase project. and add auto deploy for your project
+3. Open Pull Request. I will add you to firebase project. and add auto deploy for your location
