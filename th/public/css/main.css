@@ -1,6 +1,9 @@
 .thai-tech-cal {
   background: rgb(55, 186, 251) !important;
 }
+.thai-tech-cal-training {
+  background: rgb(251, 222, 55) !important;
+}
 
 dialog {
   width: 85% !important;

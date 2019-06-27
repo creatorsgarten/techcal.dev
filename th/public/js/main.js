@@ -5,6 +5,10 @@ const calendars = [
   {
     googleCalendarId: "tech.cal.th@gmail.com",
     className: "thai-tech-cal"
+  },
+  {
+    googleCalendarId: "c1k2p59qk20itvmtotvhktjso8@group.calendar.google.com",
+    className: "thai-tech-cal-training"
   }
 ];
 
