@@ -1,6 +1,6 @@
 var dialog = null;
 
-// List of calendar avaliable
+// List of avaliable calendars
 const calendars = [
   {
     googleCalendarId: "tech.cal.th@gmail.com",
