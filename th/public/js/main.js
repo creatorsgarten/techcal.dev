@@ -1,5 +1,6 @@
 var dialog = null;
 
+// List of calendar avaliable
 const calendars = [
   {
     googleCalendarId: "tech.cal.th@gmail.com",
@@ -113,5 +114,3 @@ const linkify = inputText => {
 
   return replacedText;
 };
-
-// Now dialog acts like a native <dialog>.
