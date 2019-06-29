@@ -5,6 +5,14 @@
   background: #fcb519 !important;
 }
 
+.thai-tech-cal .fc-event-dot {
+  background-color: rgb(55, 186, 251) !important;
+}
+
+.thai-tech-cal-training .fc-event-dot {
+  background-color: #fcb519 !important;
+}
+
 dialog {
   width: 85% !important;
   background: rgb(17, 17, 17) !important;
