@@ -58,6 +58,7 @@ const loadCalendar = () => {
     googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
     height: 560,
     eventSources: calendars,
+    firstDay: 1,
     header: {
       left: "prev,next today",
       center: "title",
