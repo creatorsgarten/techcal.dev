@@ -23,6 +23,9 @@ exports.scheduledFunction = functions.pubsub
     let mimeType = "image/jpeg";
     let bucket = admin.storage().bucket();
     let file = bucket.file("capture/th.jpg");
+
+    await bucket.file("capture/th.jpg").delete();
+
     file.save(
       imageBuffer,
       {
@@ -37,7 +40,9 @@ async function screenshotDOMElement(opts = {}) {
   const url = "url" in opts ? opts.url : null;
   const selector = opts.selector;
 
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
   const page = await browser.newPage();
   // Adjustments particular to this page to ensure we hit desktop breakpoint.
   page.setViewport({ width: 740, height: 768, deviceScaleFactor: 1 });
