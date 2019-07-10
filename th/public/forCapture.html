@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Karla&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#111111" />
+    <meta property="og:title" content="&#x3C;thai-tech-calendar /&#x3E;" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://th.techcal.dev" />
+    <meta property="og:image" content="https://th.techcal.dev/img/fb-og.png" />
+    <meta
+      name="Description"
+      CONTENT="อยากรู้ว่า เร็วๆนี้มี Tech event, Tech Meetup อะไรรอบๆตัวบ้าง เข้ามาดูเลย "
+    />
+    <meta
+      property="og:description"
+      content="อยากรู้ว่า เร็วๆนี้มี Tech event, Tech Meetup อะไรรอบๆตัวบ้าง เข้ามาดูเลย "
+    />
+    <link href="js/fullcalendar/core/main.min.css" rel="stylesheet" />
+    <link href="js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
+    <link href="js/fullcalendar/list/main.min.css" rel="stylesheet" />
+    <link href="js/fullcalendar/timegrid/main.css" rel="stylesheet" />
+
+    <script src="js/fullcalendar/core/main.min.js"></script>
+    <script src="js/fullcalendar/core/locales/th.js"></script>
+    <script src="js/fullcalendar/daygrid/main.min.js"></script>
+    <script src="js/fullcalendar/google-calendar/main.min.js"></script>
+    <script src="js/fullcalendar/list/main.min.js"></script>
+    <link href="css/main.css" rel="stylesheet" />
+    <title><thai-tech-calendar /></title>
+  </head>
+  <body>
+    <div id="calendar"></div>
+    <script>
+      const calendars = [
+        {
+          googleCalendarId: "tech.cal.th@gmail.com",
+          className: "thai-tech-cal"
+        }
+      ];
+
+      const caledarOptions = {
+        plugins: ["dayGrid", "googleCalendar", "list"],
+        googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
+        eventSources: calendars,
+        defaultView: "listWeek",
+        firstDay: 1,
+        header: {
+          left: " ",
+          center: " ",
+          right: " "
+        }
+      };
+
+      document.addEventListener("DOMContentLoaded", function() {
+        calendarEl = document.getElementById("calendar");
+        calendar = new FullCalendar.Calendar(calendarEl, caledarOptions);
+        calendar.render();
+      });
+    </script>
+  </body>
+</html>

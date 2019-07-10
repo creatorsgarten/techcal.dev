@@ -1,8 +1,10 @@
 .thai-tech-cal {
   background: rgb(55, 186, 251) !important;
+  border: none;
 }
 .thai-tech-cal-training {
   background: #fcb519 !important;
+  border: none;
 }
 
 .thai-tech-cal .fc-event-dot {
@@ -62,7 +64,7 @@ dialog #dialog-close {
 }
 .fc-today {
   color: #fff;
-  background: rgba(55, 186, 251) !important;
+  background: #585867 !important;
 }
 .fc-unthemed .fc-content,
 .fc-unthemed .fc-divider,

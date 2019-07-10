@@ -1,5 +1,7 @@
 var dialog = null;
 
+var calendar, calendarEl;
+
 // List of avaliable calendars
 const calendars = [
   {
@@ -11,6 +13,45 @@ const calendars = [
     className: "thai-tech-cal-training"
   }
 ];
+
+const caledarOptions = {
+  plugins: ["dayGrid", "googleCalendar", "list"],
+  googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
+  height: 600,
+  eventSources: calendars,
+  firstDay: 1,
+  header: {
+    left: "prev,next today",
+    center: "title",
+    right: "dayGridMonth,dayGridWeek,listWeek"
+  },
+  eventClick: function(info) {
+    document.getElementById("event-header").innerHTML = info.event.title;
+    document.getElementById("event-header").classList.add("mystyle");
+    document.getElementById(
+      "event-date"
+    ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${info.event.start} - ${
+      info.event.end
+    }`;
+    document.getElementById(
+      "event-location"
+    ).innerHTML = `<i class="fas fa-map-marker-alt"></i> ${
+      info.event._def.extendedProps.location
+    }`;
+    document.getElementById("event-description").innerHTML = `${linkify(
+      info.event._def.extendedProps.description
+    )}`;
+
+    document.getElementById(
+      "event-link"
+    ).innerHTML = `<i class="fas fa-link"></i> <a href="${
+      info.event.url
+    }" target="_blank">${info.event.url}</a>`;
+
+    dialog.showModal();
+    info.jsEvent.preventDefault();
+  }
+};
 
 document.addEventListener("DOMContentLoaded", function() {
   dialog = document.querySelector("dialog");
@@ -52,44 +93,8 @@ const loadServiceWorker = () => {
 };
 
 const loadCalendar = () => {
-  let calendarEl = document.getElementById("calendar");
-  let calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: ["dayGrid", "googleCalendar", "list"],
-    googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
-    height: 560,
-    eventSources: calendars,
-    firstDay: 1,
-    header: {
-      left: "prev,next today",
-      center: "title",
-      right: "dayGridMonth,dayGridWeek,listWeek"
-    },
-    eventClick: function(info) {
-      document.getElementById("event-header").innerHTML = info.event.title;
-      document.getElementById(
-        "event-date"
-      ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${info.event.start} - ${
-        info.event.end
-      }`;
-      document.getElementById(
-        "event-location"
-      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> ${
-        info.event._def.extendedProps.location
-      }`;
-      document.getElementById("event-description").innerHTML = `${linkify(
-        info.event._def.extendedProps.description
-      )}`;
-
-      document.getElementById(
-        "event-link"
-      ).innerHTML = `<i class="fas fa-link"></i> <a href="${
-        info.event.url
-      }" target="_blank">${info.event.url}</a>`;
-
-      dialog.showModal();
-      info.jsEvent.preventDefault();
-    }
-  });
+  calendarEl = document.getElementById("calendar");
+  calendar = new FullCalendar.Calendar(calendarEl, caledarOptions);
   calendar.render();
 };
 
@@ -119,3 +124,5 @@ const linkify = inputText => {
 
   return replacedText;
 };
+
+const showMeetup = () => {};
