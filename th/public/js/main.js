@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
   dialog = document.querySelector("dialog");
   dialogPolyfill.registerDialog(dialog);
   loadCalendar();
+  scrollToToday();
   loadServiceWorker();
   loadGoogleAnalytics();
 });
@@ -97,6 +98,10 @@ const loadCalendar = () => {
   calendar = new FullCalendar.Calendar(calendarEl, caledarOptions);
   calendar.render();
 };
+
+const scrollToToday = () => {
+  document.getElementsByClassName('fc-today')[0].scrollIntoView();
+}
 
 const linkify = inputText => {
   var replacedText, replacePattern1, replacePattern2, replacePattern3;
