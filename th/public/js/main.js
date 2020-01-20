@@ -25,33 +25,49 @@ const caledarOptions = {
     center: "title",
     right: "dayGridMonth,dayGridWeek,listWeek"
   },
+  eventRender: function (eventObj) {
+    eventObj.el.href = `/event/${eventObj.event.id}/${slugify(eventObj.event.title)}`
+    if(eventObj.event.id === window.location.pathname.split('/')[2]) {
+      openEventModal(eventObj.event)
+    }
+  },
   eventClick: function(info) {
-    document.getElementById("event-header").innerHTML = info.event.title;
-    document.getElementById("event-header").classList.add("mystyle");
-    document.getElementById(
-      "event-date"
-    ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${info.event.start} - ${
-      info.event.end
-    }`;
-    document.getElementById(
-      "event-location"
-    ).innerHTML = `<i class="fas fa-map-marker-alt"></i> ${
-      info.event._def.extendedProps.location
-    }`;
-    document.getElementById("event-description").innerHTML = `${linkify(
-      info.event._def.extendedProps.description
-    )}`;
-
-    document.getElementById(
-      "event-link"
-    ).innerHTML = `<i class="fas fa-link"></i> <a href="${
-      info.event.url
-    }" target="_blank">${info.event.url}</a>`;
-
-    dialog.showModal();
+    history.pushState({}, '', `/event/${info.event.id}/${slugify(info.event.title)}`)
+    openEventModal(info.event)
     info.jsEvent.preventDefault();
   }
 };
+
+function openEventModal(event) {
+  document.getElementById("event-header").innerHTML = event.title;
+  document.getElementById("event-header").classList.add("mystyle");
+  document.getElementById(
+    "event-date"
+  ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${event.start} - ${
+    event.end
+  }`;
+  if(event._def.extendedProps.location) {
+    document.getElementById(
+      "event-location"
+    ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event._def.extendedProps.location}" target="_blank">${
+      event._def.extendedProps.location
+    }</a>`;
+  }
+
+  if(event._def.extendedProps.description) {
+    document.getElementById("event-description").innerHTML = `${linkify(
+      event._def.extendedProps.description
+    )}`;
+  }
+
+  document.getElementById(
+    "event-link"
+  ).innerHTML = `<i class="fas fa-link"></i> <a href="${
+    event.url
+  }" target="_blank">${event.url}</a>`;
+
+  dialog.showModal();
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   dialog = document.querySelector("dialog");
@@ -85,9 +101,9 @@ const loadGoogleAnalytics = () => {
 };
 
 const loadServiceWorker = () => {
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js");
-  }
+  // if ("serviceWorker" in navigator) {
+  //   navigator.serviceWorker.register("/service-worker.js");
+  // }
 };
 
 const loadCalendar = () => {

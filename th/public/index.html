@@ -14,8 +14,9 @@
     <meta property="og:title" content="&#x3C;thai-tech-calendar /&#x3E;" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://th.techcal.dev" />
-    <meta property="og:app_id" content="513638715949361" />
+    <meta property="fb:app_id" content="513638715949361" />
     <meta property="og:image" content="https://th.techcal.dev/img/fb-og.png" />
+    <script src="https://cdn.jsdelivr.net/npm/slugify@1.3.6/slugify.min.js"></script>
     <!-- <meta
       property="og:image"
       content="https://firebasestorage.googleapis.com/v0/b/techcal-th.appspot.com/o/capture%2Fth.jpg?alt=media"
@@ -28,17 +29,17 @@
       property="og:description"
       content="เร็วๆนี้มี Tech event, Tech Meetup อะไร เข้ามาดูเลย "
     />
-    <link href="js/fullcalendar/core/main.min.css" rel="stylesheet" />
-    <link href="js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
-    <link href="js/fullcalendar/list/main.min.css" rel="stylesheet" />
-    <link href="js/fullcalendar/timegrid/main.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/core/main.min.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/list/main.min.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/timegrid/main.css" rel="stylesheet" />
 
-    <script src="js/fullcalendar/core/main.min.js"></script>
-    <script src="js/fullcalendar/core/locales/th.js"></script>
-    <script src="js/fullcalendar/daygrid/main.min.js"></script>
-    <script src="js/fullcalendar/google-calendar/main.min.js"></script>
-    <script src="js/fullcalendar/list/main.min.js"></script>
-    <link href="css/main.css" rel="stylesheet" />
+    <script src="/js/fullcalendar/core/main.min.js"></script>
+    <script src="/js/fullcalendar/core/locales/th.js"></script>
+    <script src="/js/fullcalendar/daygrid/main.min.js"></script>
+    <script src="/js/fullcalendar/google-calendar/main.min.js"></script>
+    <script src="/js/fullcalendar/list/main.min.js"></script>
+    <link href="/css/main.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/9183e348c4.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.js"
@@ -142,7 +143,7 @@
       ไม่ขอรับ Training event, Private event, หรือ Event ที่ไม่เกี่ยวกับ Tech
       ลงใน Calendar หลัก นะครับ
       <div class="image-demo">
-        <img src="./img/demo.png" />
+        <img src="/img/demo.png" />
       </div>
       <h2>แจ้งเตือน Event ยังไง?</h2>
       <ol>
@@ -171,9 +172,9 @@
       <div id="dialog-close"><i class="fas fa-times"></i></div>
       <h1 id="event-header"></h1>
       <p id="event-date"></p>
+      <p id="event-link"></p>
       <p id="event-location"></p>
       <p id="event-description" style="word-break: break-all;"></p>
-      <p id="event-link"></p>
     </dialog>
     <div id="calendar"></div>
     <!-- <div
@@ -192,12 +193,12 @@
         <a
           style="word-break: break-word;"
           href="https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics"
-          ><img src="img/cal-icon/thai-tech-cal-icon.png" height="40"
+          ><img src="/img/cal-icon/thai-tech-cal-icon.png" height="40"
         /></a>
         <a
           style="word-break: break-word;"
           href="https://calendar.google.com/calendar/ical/c1k2p59qk20itvmtotvhktjso8%40group.calendar.google.com/public/basic.ics"
-          ><img src="img/cal-icon/thai-tech-training-cal-icon.png" height="40"
+          ><img src="/img/cal-icon/thai-tech-training-cal-icon.png" height="40"
         /></a>
       </p>
       <br />
@@ -212,7 +213,7 @@
       >
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"

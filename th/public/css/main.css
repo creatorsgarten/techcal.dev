@@ -1,3 +1,4 @@
+
 .thai-tech-cal {
   background: rgb(55, 186, 251) !important;
   border: none;
@@ -20,6 +21,8 @@ dialog {
   background: rgb(17, 17, 17) !important;
   color: #fff !important;
   border: none !important;
+  overflow: hidden;
+  word-break: break-all;
 }
 dialog p {
   font-size: 14px;

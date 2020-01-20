@@ -1,6 +1,10 @@
 {
   "hosting": [
     {
+      "rewrites": [ {
+        "source": "**",
+        "destination": "/index.html"
+      }],
       "target": "thailand",
       "public": "th/public",
       "ignore": [
