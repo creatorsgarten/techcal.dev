@@ -16,7 +16,6 @@
     <meta property="og:url" content="https://th.techcal.dev" />
     <meta property="fb:app_id" content="513638715949361" />
     <meta property="og:image" content="https://th.techcal.dev/img/fb-og.png" />
-    <script src="https://cdn.jsdelivr.net/npm/slugify@1.3.6/slugify.min.js"></script>
     <!-- <meta
       property="og:image"
       content="https://firebasestorage.googleapis.com/v0/b/techcal-th.appspot.com/o/capture%2Fth.jpg?alt=media"
@@ -33,26 +32,14 @@
     <link href="/js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
     <link href="/js/fullcalendar/list/main.min.css" rel="stylesheet" />
     <link href="/js/fullcalendar/timegrid/main.css" rel="stylesheet" />
-
-    <script src="/js/fullcalendar/core/main.min.js"></script>
-    <script src="/js/fullcalendar/core/locales/th.js"></script>
-    <script src="/js/fullcalendar/daygrid/main.min.js"></script>
-    <script src="/js/fullcalendar/google-calendar/main.min.js"></script>
-    <script src="/js/fullcalendar/list/main.min.js"></script>
     <link href="/css/main.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/9183e348c4.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.js"
-      integrity="sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM="
-      crossorigin="anonymous"
-    ></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.css"
       integrity="sha256-qVjBFbunjrWQ4IikV5dkK1ziW9XKskisX1rUbCIJEhk="
       crossorigin="anonymous"
     />
-    <title><thai-tech-calendar /></title>
+    <title><thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</title>
   </head>
   <body>
     <a
@@ -143,7 +130,7 @@
       ไม่ขอรับ Training event, Private event, หรือ Event ที่ไม่เกี่ยวกับ Tech
       ลงใน Calendar หลัก นะครับ
       <div class="image-demo">
-        <img src="/img/demo.png" />
+        <img src="/img/demo.png" loading="lazy"/>
       </div>
       <h2>แจ้งเตือน Event ยังไง?</h2>
       <ol>
@@ -193,12 +180,12 @@
         <a
           style="word-break: break-word;"
           href="https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics"
-          ><img src="/img/cal-icon/thai-tech-cal-icon.png" height="40"
+          ><img src="/img/cal-icon/thai-tech-cal-icon.png" height="40" loading="lazy"
         /></a>
         <a
           style="word-break: break-word;"
           href="https://calendar.google.com/calendar/ical/c1k2p59qk20itvmtotvhktjso8%40group.calendar.google.com/public/basic.ics"
-          ><img src="/img/cal-icon/thai-tech-training-cal-icon.png" height="40"
+          ><img src="/img/cal-icon/thai-tech-training-cal-icon.png" height="40" loading="lazy"
         /></a>
       </p>
       <br />
@@ -212,12 +199,24 @@
         >@thangman22</a
       >
     </div>
-
-    <script src="/js/main.js"></script>
+    <script defer src="https://kit.fontawesome.com/9183e348c4.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.js"
+      integrity="sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script defer src="/js/fullcalendar/core/main.min.js"></script>
+    <script defer src="/js/fullcalendar/core/locales/th.js"></script>
+    <script defer src="/js/fullcalendar/daygrid/main.min.js"></script>
+    <script defer src="/js/fullcalendar/google-calendar/main.min.js"></script>
+    <script defer src="/js/fullcalendar/list/main.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/slugify@1.3.6/slugify.min.js"></script>
+    <script defer src="/js/main.js"></script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"
     ></script>
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e1fc9b046e7090012e63660&product=sticky-share-buttons&cms=sop' async='async'></script>
+    <script type='text/javascript' defer src='https://platform-api.sharethis.com/js/sharethis.js#property=5e1fc9b046e7090012e63660&product=sticky-share-buttons&cms=sop' async='async'></script>
   </body>
 </html>

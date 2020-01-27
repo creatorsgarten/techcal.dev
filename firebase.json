@@ -2,9 +2,13 @@
   "hosting": [
     {
       "rewrites": [ {
+        "source": "/sitemap",
+        "function": "siteMap"
+      },{
         "source": "**",
         "destination": "/index.html"
-      }],
+      }
+      ],
       "target": "thailand",
       "public": "th/public",
       "ignore": [

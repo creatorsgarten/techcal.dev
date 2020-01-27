@@ -46,6 +46,9 @@ function openEventModal(event) {
   ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${event.start} - ${
     event.end
   }`;
+  
+  document.title = `<thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว | ${event.title}`
+
   if(event._def.extendedProps.location) {
     document.getElementById(
       "event-location"
@@ -78,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.getElementById("dialog-close").addEventListener("click", e => {
+  history.pushState({}, '', `/`)
+
   dialog.close();
 });
 
