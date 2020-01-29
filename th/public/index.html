@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,23 +22,19 @@
     /> -->
     <meta
       name="Description"
-      CONTENT="เร็วๆนี้มี Tech event, Tech Meetup อะไร เข้ามาดูเลย "
+      CONTENT="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
     />
     <meta
       property="og:description"
-      content="เร็วๆนี้มี Tech event, Tech Meetup อะไร เข้ามาดูเลย "
+      content="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
     />
     <link href="/js/fullcalendar/core/main.min.css" rel="stylesheet" />
     <link href="/js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
     <link href="/js/fullcalendar/list/main.min.css" rel="stylesheet" />
     <link href="/js/fullcalendar/timegrid/main.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.css"
-      integrity="sha256-qVjBFbunjrWQ4IikV5dkK1ziW9XKskisX1rUbCIJEhk="
-      crossorigin="anonymous"
-    />
+    <link href="/css/dialog-polyfill.css" rel="stylesheet" />
+    
     <title><thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</title>
   </head>
   <body>
@@ -94,14 +90,14 @@
     </style>
     <div class="header-container">
       <div class="header-item">
-        <h1>&#x3C;thai-tech-calendar /&#x3E;</h1>
+        <span id="logo">&#x3C;thai-tech-calendar /&#x3E;</span>
       </div>
       <div class="header-item how-to-add">
         <a href="#" id="how-to-add-link">เพิ่ม / แจ้งเดือน Event ยังไง?</a>
       </div>
     </div>
     <div class="slogan">
-      เร็วๆนี้มี Tech event, Tech Meetup อะไร เข้ามาดูเลย
+      <h1>รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</h1>
     </div>
     <div id="instruction">
       <h2>เพิ่ม Event ยังไง?</h2>
@@ -157,7 +153,7 @@
     </div>
     <dialog>
       <div id="dialog-close"><i class="fas fa-times"></i></div>
-      <h1 id="event-header"></h1>
+      <div id="event-header"></div>
       <p id="event-date"></p>
       <p id="event-link"></p>
       <p id="event-location"></p>
@@ -199,13 +195,8 @@
         >@thangman22</a
       >
     </div>
-    <script defer src="https://kit.fontawesome.com/9183e348c4.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.0/dialog-polyfill.min.js"
-      integrity="sha256-zuWV5NPG/4LAjEtLJIe7ZyTHW7glLsCJcP2za9U7KEM="
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <script defer src="/js/dialog-polyfill.js"></script>
+    <script defer src="/js/fullcalendar/core/main.min.js"></script>
     <script defer src="/js/fullcalendar/core/main.min.js"></script>
     <script defer src="/js/fullcalendar/core/locales/th.js"></script>
     <script defer src="/js/fullcalendar/daygrid/main.min.js"></script>

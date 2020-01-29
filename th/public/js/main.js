@@ -39,8 +39,8 @@ const caledarOptions = {
 };
 
 function openEventModal(event) {
-  document.getElementById("event-header").innerHTML = event.title;
-  document.getElementById("event-header").classList.add("mystyle");
+  document.getElementById("event-header").innerHTML = `<h1 id="event-header">${event.title}</h1>`;
+
   document.getElementById(
     "event-date"
   ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${event.start} - ${

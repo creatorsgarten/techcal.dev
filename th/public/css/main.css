@@ -90,6 +90,13 @@ body {
 h1 {
   color: rgb(55, 186, 251);
 }
+.slogan h1 {
+  color: #fff;
+}
+#logo {
+  color: rgb(55, 186, 251);
+  font-size: 2em;
+}
 .header-container {
   width: 100%;
   display: -webkit-flex;
@@ -155,7 +162,7 @@ h1 {
   color: #fff;
 }
 @media (min-width: 320px) and (max-width: 480px) {
-  h1 {
+  h1,#logo {
     font-size: 15px;
   }
   #how-to-add-link {
