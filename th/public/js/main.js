@@ -90,6 +90,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     response.title = response.summary;
     response.start = response.start.dateTime;
     response.end = response.end.dateTime;
+    response.url = response.htmlLink;
+    htmlLink
     response._def = {
       extendedProps: {
         description: response.description || "",
