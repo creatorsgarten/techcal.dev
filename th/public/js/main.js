@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     response._def = {
       extendedProps: {
         description: response.description,
-        location: response.location
+        location: response.location || ""
       }
     };
     openEventModal(response);
