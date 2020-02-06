@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     response.end = response.end.dateTime;
     response._def = {
       extendedProps: {
-        description: response.description,
+        description: response.description || "",
         location: response.location || ""
       }
     };
