@@ -25,12 +25,6 @@ const caledarOptions = {
     center: "title",
     right: "dayGridMonth,dayGridWeek,listWeek"
   },
-  eventRender: function (eventObj) {
-    eventObj.el.href = `/event/${eventObj.event.id}/${slugify(eventObj.event.title)}`
-    if(eventObj.event.id === window.location.pathname.split('/')[2]) {
-      openEventModal(eventObj.event)
-    }
-  },
   eventClick: function(info) {
     history.pushState({}, '', `/event/${info.event.id}/${slugify(info.event.title)}`)
     openEventModal(info.event)
@@ -48,15 +42,16 @@ function openEventModal(event) {
   }`;
   
   document.title = `<thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว | ${event.title}`
-
-  if(event._def.extendedProps.location) {
-    document.getElementById(
-      "event-location"
-    ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event._def.extendedProps.location}" target="_blank">${
-      event._def.extendedProps.location
-    }</a>`;
+  if(event._def) {
+    if(event._def.extendedProps.location) {
+      document.getElementById(
+        "event-location"
+      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event._def.extendedProps.location}" target="_blank">${
+        event._def.extendedProps.location
+      }</a>`;
+    }
   }
-
+  
   if(event._def.extendedProps.description) {
     document.getElementById("event-description").innerHTML = `${linkify(
       event._def.extendedProps.description
@@ -72,11 +67,23 @@ function openEventModal(event) {
   dialog.showModal();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
   dialog = document.querySelector("dialog");
   dialogPolyfill.registerDialog(dialog);
+  if(window.location.pathname.split('/')[2]) {
+    let requestPrimary = await fetch(`https://www.googleapis.com/calendar/v3/calendars/tech.cal.th%40gmail.com/events/${window.location.pathname.split('/')[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`)
+    let response = await requestPrimary.json() 
+    if(response.error) {
+      let requestTraining = await fetch(`https://www.googleapis.com/calendar/v3/calendars/c1k2p59qk20itvmtotvhktjso8%40group.calendar.google.com/events/${window.location.pathname.split('/')[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`)
+      response = await requestTraining.json() 
+    }
+    response._def = {
+      extendedProps: { description:response.description }
+    }
+    openEventModal(response)
+  }
   loadCalendar();
-  loadServiceWorker();
+  // loadServiceWorker();
   loadGoogleAnalytics();
 });
 
