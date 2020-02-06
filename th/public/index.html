@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="/manifest.json" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Karla&display=swap"
-      rel="stylesheet"
-    />
     <meta name="theme-color" content="#111111" />
     <meta property="og:title" content="&#x3C;thai-tech-calendar /&#x3E;" />
     <meta property="og:type" content="website" />
@@ -28,12 +24,8 @@
       property="og:description"
       content="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
     />
-    <link href="/js/fullcalendar/core/main.min.css" rel="stylesheet" />
-    <link href="/js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
-    <link href="/js/fullcalendar/list/main.min.css" rel="stylesheet" />
-    <link href="/js/fullcalendar/timegrid/main.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
-    <link href="/css/dialog-polyfill.css" rel="stylesheet" />
+
     
     <title><thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</title>
   </head>
@@ -126,7 +118,11 @@
       ไม่ขอรับ Training event, Private event, หรือ Event ที่ไม่เกี่ยวกับ Tech
       ลงใน Calendar หลัก นะครับ
       <div class="image-demo">
-        <img src="/img/demo.png" loading="lazy"/>
+        <picture>
+          <source srcset="/img/demo.webp" type="image/webp">
+          <source srcset="/img/demo.png" type="image/jpeg"> 
+          <img src="/img/demo.png" alt="Alt Text!"  loading="lazy">
+        </picture>
       </div>
       <h2>แจ้งเตือน Event ยังไง?</h2>
       <ol>
@@ -186,6 +182,11 @@
         >@thangman22</a
       >
     </div>
+    <link href="/js/fullcalendar/core/main.min.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/daygrid/main.min.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/list/main.min.css" rel="stylesheet" />
+    <link href="/js/fullcalendar/timegrid/main.css" rel="stylesheet" />
+    <link href="/css/dialog-polyfill.css" rel="stylesheet" />
     <script defer src="/js/dialog-polyfill.js"></script>
     <script defer src="/js/fullcalendar/core/main.min.js"></script>
     <script defer src="/js/fullcalendar/core/main.min.js"></script>
@@ -194,7 +195,11 @@
     <script defer src="/js/fullcalendar/google-calendar/main.min.js"></script>
     <script defer src="/js/fullcalendar/list/main.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/slugify@1.3.6/slugify.min.js"></script>
-    <script defer src="/js/main.js"></script>
+    <link
+    href="https://fonts.googleapis.com/css?family=Karla&display=swap"
+    rel="stylesheet"
+  />
+    <script src="/js/main.js"></script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"

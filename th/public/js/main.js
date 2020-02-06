@@ -26,33 +26,37 @@ const caledarOptions = {
     right: "dayGridMonth,dayGridWeek,listWeek"
   },
   eventClick: function(info) {
-    history.pushState({}, '', `/event/${info.event.id}/${slugify(info.event.title)}`)
-    openEventModal(info.event)
+    history.pushState(
+      {},
+      "",
+      `/event/${info.event.id}/${slugify(info.event.title)}`
+    );
+    openEventModal(info.event);
     info.jsEvent.preventDefault();
   }
 };
 
 function openEventModal(event) {
-  document.getElementById("event-header").innerHTML = `<h1 id="event-header">${event.title}</h1>`;
+  document.getElementById(
+    "event-header"
+  ).innerHTML = `<h1 id="event-header">${event.title}</h1>`;
 
   document.getElementById(
     "event-date"
-  ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${event.start} - ${
-    event.end
-  }`;
-  
-  document.title = `<thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว | ${event.title}`
-  if(event._def) {
-    if(event._def.extendedProps.location) {
+  ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${event.start} - ${event.end}`;
+
+  document.title = `<thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว | ${event.title}`;
+  if (event._def) {
+    if (event._def.extendedProps.location) {
       document.getElementById(
         "event-location"
-      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event._def.extendedProps.location}" target="_blank">${
-        event._def.extendedProps.location
-      }</a>`;
+      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event
+        ._def.extendedProps.location}" target="_blank">${event._def
+        .extendedProps.location}</a>`;
     }
   }
-  
-  if(event._def.extendedProps.description) {
+
+  if (event._def.extendedProps.description) {
     document.getElementById("event-description").innerHTML = `${linkify(
       event._def.extendedProps.description
     )}`;
@@ -60,9 +64,7 @@ function openEventModal(event) {
 
   document.getElementById(
     "event-link"
-  ).innerHTML = `<i class="fas fa-link"></i> <a href="${
-    event.url
-  }" target="_blank">${event.url}</a>`;
+  ).innerHTML = `<i class="fas fa-link"></i> <a href="${event.url}" target="_blank">${event.url}</a>`;
 
   dialog.showModal();
 }
@@ -70,25 +72,39 @@ function openEventModal(event) {
 document.addEventListener("DOMContentLoaded", async function() {
   dialog = document.querySelector("dialog");
   dialogPolyfill.registerDialog(dialog);
-  if(window.location.pathname.split('/')[2]) {
-    let requestPrimary = await fetch(`https://www.googleapis.com/calendar/v3/calendars/tech.cal.th%40gmail.com/events/${window.location.pathname.split('/')[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`)
-    let response = await requestPrimary.json() 
-    if(response.error) {
-      let requestTraining = await fetch(`https://www.googleapis.com/calendar/v3/calendars/c1k2p59qk20itvmtotvhktjso8%40group.calendar.google.com/events/${window.location.pathname.split('/')[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`)
-      response = await requestTraining.json() 
+  if (window.location.pathname.split("/")[2]) {
+    let requestPrimary = await fetch(
+      `https://www.googleapis.com/calendar/v3/calendars/tech.cal.th%40gmail.com/events/${window.location.pathname.split(
+        "/"
+      )[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`
+    );
+    let response = await requestPrimary.json();
+    if (response.error) {
+      let requestTraining = await fetch(
+        `https://www.googleapis.com/calendar/v3/calendars/c1k2p59qk20itvmtotvhktjso8%40group.calendar.google.com/events/${window.location.pathname.split(
+          "/"
+        )[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`
+      );
+      response = await requestTraining.json();
     }
+    response.title = response.summary;
+    response.start = response.start.dateTime;
+    response.end = response.end.dateTime;
     response._def = {
-      extendedProps: { description:response.description }
-    }
-    openEventModal(response)
+      extendedProps: {
+        description: response.description,
+        location: response.location
+      }
+    };
+    openEventModal(response);
   }
   loadCalendar();
-  // loadServiceWorker();
+  loadServiceWorker();
   loadGoogleAnalytics();
 });
 
 document.getElementById("dialog-close").addEventListener("click", e => {
-  history.pushState({}, '', `/`)
+  history.pushState({}, "", `/`);
 
   dialog.close();
 });
