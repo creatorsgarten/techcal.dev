@@ -25,6 +25,9 @@ const caledarOptions = {
     center: "title",
     right: "dayGridMonth,dayGridWeek,listWeek"
   },
+  eventRender: function (eventObj) {
+    eventObj.el.href = `/event/${eventObj.event.id}/${slugify(eventObj.event.title)}`
+  },
   eventClick: function(info) {
     history.pushState(
       {},
