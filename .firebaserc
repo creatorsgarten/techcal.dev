@@ -7,6 +7,9 @@
       "hosting": {
         "thailand": [
           "techcal-th"
+        ],
+        "main": [
+          "techcal"
         ]
       }
     }
