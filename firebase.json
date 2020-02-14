@@ -19,6 +19,23 @@
     },
     {
       "rewrites": [ {
+        "source": "/sitemap",
+        "function": "siteMap"
+      },{
+        "source": "**",
+        "destination": "/index.html"
+      }
+      ],
+      "target": "indonesia",
+      "public": "id/public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "rewrites": [ {
         "source": "**",
         "destination": "/index.html"
       }],

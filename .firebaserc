@@ -10,6 +10,9 @@
         ],
         "main": [
           "techcal"
+        ],
+        "indonesia": [
+          "techcal-id"
         ]
       }
     }
