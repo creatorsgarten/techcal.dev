@@ -1,24 +1,17 @@
-# 🇹🇭 th.techcal.dev
+# 🇮🇩 id.techcal.dev
 
-Repository for Calendar of thailand tech meetup and event.
+Repository for Calendar of Indonesia tech meetups and events.
 
-## เพิ่ม Event เข้า Calendar หลัก ยังไง?
+## How to add events to the main calendar?
 
-- สร้าง event ใน calendar ของตัวเอง ที่ไหนก็ได้ เช่น Google Calendar, Outlook, MacOs Calendar
-- Invite อีเมล tech.cal.th@gmail.com เข้าไปใน Event
-- เสร็จ เรียบร้อย!!!!
-- ไม่ขอรับ Training event, Private event, หรือ Event ที่ไม่เกี่ยวกับ Tech ใน calendar หลักนะครับ
+- Create events in your own calendar anywhere, such as Google Calendar, Outlook, MacOs Calendar.
+- Invite email tech.cal.id@gmail.com into your Event.
+- Do not request for Training events, Private events, or Tech unrelated events in the main calendar.
 
-## อยาก Add ทั้ง Calendar ทำยังไง
+## Terms, Conditions and Requirements to Add New Calendar
 
-- เปิด Calendar นั้นเป็น public
-- Fork Repo ไป แก้ไขไฟล์ `public/js/main.js` หรือ เปิด Issue เข้ามา
-- เปิด PR สำหรับขอ Add calendar ใหม่
-
-## เงื่อนไขการรับ Add Calendar ใหม่
-
-- รับเฉพาะ Calendar ของ องค์กรที่จัดกิจกรรม Tech หรือ Training เป็นประจำเท่านั้น
-- ต้องเป็นเจ้าของและเป็นผู้สร้าง Event ที่อยู่ใน Calendar เท่านั้น เพื่อป้องกัน Event ซ้ำ
-- ในช่วงแรกไม่ขอรับ Calendar ที่เป็นของส่วนบุคคล หรือส่วนตัว
-- กิจกรรมสามารถเป็นกิจกรรมที่มีค่าใช้จ่ายได้
-- สามารถอณุญาตให้นำ Logo มาใส่ในหน้าเว็บไซต์ได้
+- You must regularly holds Tech or Training events
+- You must be the owner and the creator of the event to prevent duplicate events.
+- During the first period, do not request personal or private calendars
+- You may add paid events
+- You may add your logo
