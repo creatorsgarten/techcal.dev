@@ -1,15 +1,6 @@
 const functions = require("firebase-functions");
 const puppeteer = require("puppeteer");
-const admin = require("firebase-admin");
-const serviceAccount = require("./service_accoun_key.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  storageBucket: "techcal-th.appspot.com"
-});
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
 exports.siteMap = functions.https.onRequest(async (req, res) => {
   let events = [];
   let output = ""

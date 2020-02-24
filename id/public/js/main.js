@@ -5,12 +5,8 @@ var calendar, calendarEl;
 // List of avaliable calendars
 const calendars = [
   {
-    googleCalendarId: "tech.cal.th@gmail.com",
-    className: "thai-tech-cal"
-  },
-  {
-    googleCalendarId: "c1k2p59qk20itvmtotvhktjso8@group.calendar.google.com",
-    className: "thai-tech-cal-training"
+    googleCalendarId: "tech.cal.id@gmail.com",
+    className: "indonesia-tech-cal"
   }
 ];
 

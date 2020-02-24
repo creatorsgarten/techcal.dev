@@ -1,20 +1,14 @@
 
-.thai-tech-cal {
+.indonesia-tech-cal {
   background: rgb(55, 186, 251) !important;
   border: none;
 }
-.thai-tech-cal-training {
-  background: #fcb519 !important;
-  border: none;
-}
 
-.thai-tech-cal .fc-event-dot {
+
+.indonesia-tech-cal .fc-event-dot {
   background-color: rgb(55, 186, 251) !important;
 }
 
-.thai-tech-cal-training .fc-event-dot {
-  background-color: #fcb519 !important;
-}
 
 dialog {
   width: 85% !important;
