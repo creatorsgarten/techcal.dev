@@ -18,13 +18,15 @@
     /> -->
     <meta
       name="Description"
-      CONTENT="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
+      content="Semua acara IT Indonesia dalam satu tempat"
     />
     <meta
       property="og:description"
-      content="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
+      content="Semua acara IT Indonesia dalam satu tempat"
     />
-    <title><indonesia-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</title>
+    <title>
+      <indonesia-tech-calendar /> | Semua acara IT Indonesia dalam satu tempat
+    </title>
   </head>
   <body>
     <a
@@ -82,49 +84,46 @@
         <span id="logo">&#x3C;indonesia-tech-calendar /&#x3E;</span>
       </div>
       <div class="header-item how-to-add">
-        <a href="#" id="how-to-add-link">เพิ่ม / แจ้งเดือน Event ยังไง?</a>
+        <a href="#" id="how-to-add-link">Cara menambahkan acara?</a>
       </div>
     </div>
     <div class="slogan">
-      <h1>รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</h1>
+      <h1>Semua acara IT Indonesia dalam satu tempat</h1>
     </div>
     <div id="instruction">
-      <h2>เพิ่ม Event ยังไง?</h2>
+      <h2>Cara menambahkan acara?</h2>
       <ol>
         <li>
-          สร้าง event ใน calendar ของตัวเอง ที่ไหนก็ได้ เช่น Google Calendar,
-          Outlook, MacOs Calendar
+          Buatlah acara di kalendermu, misal Google Calendar, Outlook, atau
+          MacOs Calendar
         </li>
         <li>
-          Invite อีเมล
+          Lalu undang
           <ul>
             <li>
-              <span class="blue">tech.cal.th@gmail.com</span> สำหรับ Event
-              public
+              <span class="blue">tech.cal.id@gmail.com</span> untuk acara publik
             </li>
           </ul>
         </li>
-        <li><strong>เสร็จ เรียบร้อย!!!!</strong></li>
+        <li><strong>Beres!!!!</strong></li>
       </ol>
-      ไม่ขอรับ Training event, Private event, หรือ Event ที่ไม่เกี่ยวกับ Tech
-      ลงใน Calendar หลัก นะครับ
+      Jangan mengundang untuk acara-acara tertutup (berbayar) atau acara yang
+      tidak berkaitan dengan IT
       <div class="image-demo">
-        <img src="/img/demo.png" alt="Alt Text!"  loading="lazy">
+        <img src="/img/demo.png" alt="Alt Text!" loading="lazy" />
       </div>
-      <h2>แจ้งเตือน Event ยังไง?</h2>
+      <h2>Cara untuk mendapatkan pemberitahuan ketika ada event baru:</h2>
+
       <ol>
         <li>
-          เพิ่มไฟล์ Ical จาก Link ด้านล่าง ไปยัง calendar ของคุณ
-        </li>
-        <li>
-          ตั้งการแจ้งเตือนให้กับ Caledar Thai Tech Calendar ตาม platform ของ
-          ตัวเอง
           <a
             href="https://support.google.com/calendar/answer/6285327?hl=th&co=GENIE.Platform=Desktop"
             class="blue"
           >
             Google Calendar</a
           >
+        </li>
+        <li>
           <a
             href="https://support.office.com/th-th/article/การแจ้งเตือนปฏิทินใน-outlook-web-app-763907f8-65be-4138-beeb-fc770adf5c6d"
             class="blue"
@@ -135,7 +134,7 @@
       </ol>
     </div>
     <dialog>
-      <div id="dialog-close"><i class="fas fa-times"></i>Close</div>
+      <div id="dialog-close"><i class="fas fa-times"></i>Tutup</div>
       <div id="event-header"></div>
       <p id="event-date"></p>
       <p id="event-link"></p>
@@ -149,19 +148,27 @@
       <p>
         <a
           style="word-break: break-word;"
-          href="https://calendar.google.com/calendar/ical/tech.cal.th%40gmail.com/public/basic.ics"
-          ><img src="/img/cal-icon/indonesia-tech-cal-icon.png" height="40" loading="lazy"
+          href="https://calendar.google.com/calendar/ical/tech.cal.id%40gmail.com/public/basic.ics"
+          ><img
+            src="/img/cal-icon/indonesia-tech-cal-icon.png"
+            height="40"
+            loading="lazy"
         /></a>
       </p>
       <br />
       <a
         href="https://github.com/thangman22/techcal.dev/tree/master/th"
         target="_blank"
-        >อยากมี Calendar ของตัวเองในนี้?</a
+        >Want to have your own calendar here?</a
       ><br /><br />
       Build with 🧡 by
       <a href="http://twitter.com/thangman22" class="username-link"
         >@thangman22</a
+      >
+      <br />
+      This page is maintained by
+      <a href="http://twitter.com/saiqulhaq" class="username-link"
+        >@saiqulhaq</a
       >
     </div>
     <link href="/css/main.css" rel="stylesheet" />
@@ -177,16 +184,24 @@
     <script defer src="/js/fullcalendar/daygrid/main.min.js"></script>
     <script defer src="/js/fullcalendar/google-calendar/main.min.js"></script>
     <script defer src="/js/fullcalendar/list/main.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/slugify@1.3.6/slugify.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/slugify@1.3.6/slugify.min.js"
+    ></script>
     <link
-    href="https://fonts.googleapis.com/css?family=Karla&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css?family=Karla&display=swap"
+      rel="stylesheet"
+    />
     <script src="/js/main.js"></script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"
     ></script>
-    <script type='text/javascript' defer src='https://platform-api.sharethis.com/js/sharethis.js#property=5e1fc9b046e7090012e63660&product=sticky-share-buttons&cms=sop' async='async'></script>
+    <script
+      type="text/javascript"
+      defer
+      src="https://platform-api.sharethis.com/js/sharethis.js#property=5e1fc9b046e7090012e63660&product=sticky-share-buttons&cms=sop"
+      async="async"
+    ></script>
   </body>
 </html>
