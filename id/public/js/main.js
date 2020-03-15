@@ -10,9 +10,10 @@ const calendars = [
   }
 ];
 
-const caledarOptions = {
+const API_KEY = "AIzaSyCZDMXYGshyr-XNNTq-jkF5x9HJKhGBcpE";
+const calendarOptions = {
   plugins: ["dayGrid", "googleCalendar", "list"],
-  googleCalendarApiKey: "AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U",
+  googleCalendarApiKey: API_KEY,
   height: 600,
   eventSources: calendars,
   firstDay: 1,
@@ -21,8 +22,10 @@ const caledarOptions = {
     center: "title",
     right: "dayGridMonth,dayGridWeek,listWeek"
   },
-  eventRender: function (eventObj) {
-    eventObj.el.href = `/event/${eventObj.event.id}/${slugify(eventObj.event.title)}`
+  eventRender: function(eventObj) {
+    eventObj.el.href = `/event/${eventObj.event.id}/${slugify(
+      eventObj.event.title
+    )}`;
   },
   eventClick: function(info) {
     history.pushState(
@@ -35,6 +38,8 @@ const caledarOptions = {
   }
 };
 
+const defaultTitle = document.title;
+
 function openEventModal(event) {
   document.getElementById(
     "event-header"
@@ -44,14 +49,12 @@ function openEventModal(event) {
     "event-date"
   ).innerHTML = `<i class="fas fa-alarm-clock"></i> ${event.start} - ${event.end}`;
 
-  document.title = `<thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว | ${event.title}`;
+  document.title = `${event.title} | ${defaultTitle}` ;
   if (event._def) {
     if (event._def.extendedProps.location) {
       document.getElementById(
         "event-location"
-      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event
-        ._def.extendedProps.location}" target="_blank">${event._def
-        .extendedProps.location}</a>`;
+      ).innerHTML = `<i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/${event._def.extendedProps.location}" target="_blank">${event._def.extendedProps.location}</a>`;
     }
   }
 
@@ -73,24 +76,27 @@ document.addEventListener("DOMContentLoaded", async function() {
   dialogPolyfill.registerDialog(dialog);
   if (window.location.pathname.split("/")[2]) {
     let requestPrimary = await fetch(
-      `https://www.googleapis.com/calendar/v3/calendars/tech.cal.th%40gmail.com/events/${window.location.pathname.split(
-        "/"
-      )[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`
+      `https://www.googleapis.com/calendar/v3/calendars/tech.cal.id@gmail.com/events/${
+        window.location.pathname.split("/")[2]
+      }?key=${API_KEY}`
     );
     let response = await requestPrimary.json();
     if (response.error) {
-      let requestTraining = await fetch(
-        `https://www.googleapis.com/calendar/v3/calendars/c1k2p59qk20itvmtotvhktjso8%40group.calendar.google.com/events/${window.location.pathname.split(
-          "/"
-        )[2]}?key=AIzaSyBcerJ9_XsuT6AptHP5yg5PweyYzwJVP4U`
-      );
-      response = await requestTraining.json();
+      window.alert("Sorry something went wrong");
+      // let requestTraining = await fetch(
+      //   `https://www.googleapis.com/calendar/v3/calendars/tech.cal.id@gmail.com/events/${window.location.pathname.split(
+      //     "/"
+      //   )[2]}?key=${API_KEY}`, {
+      //     referrer: "http://id.techcal.dev/"
+      //   }
+      // );
+      // response = await requestTraining.json();
     }
     response.title = response.summary;
     response.start = response.start.dateTime;
     response.end = response.end.dateTime;
     response.url = response.htmlLink;
-  
+
     response._def = {
       extendedProps: {
         description: response.description || "",
@@ -137,7 +143,7 @@ const loadServiceWorker = () => {
 
 const loadCalendar = () => {
   calendarEl = document.getElementById("calendar");
-  calendar = new FullCalendar.Calendar(calendarEl, caledarOptions);
+  calendar = new FullCalendar.Calendar(calendarEl, calendarOptions);
   calendar.render();
 };
 
