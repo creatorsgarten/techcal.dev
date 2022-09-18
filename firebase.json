@@ -1,13 +1,15 @@
 {
   "hosting": [
     {
-      "rewrites": [ {
-        "source": "/sitemap",
-        "function": "siteMap"
-      },{
-        "source": "**",
-        "destination": "/index.html"
-      }
+      "rewrites": [
+        {
+          "source": "/sitemap",
+          "function": "siteMap"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
       ],
       "target": "thailand",
       "public": "th/public",
@@ -18,13 +20,15 @@
       ]
     },
     {
-      "rewrites": [ {
-        "source": "/sitemap",
-        "function": "siteMap"
-      },{
-        "source": "**",
-        "destination": "/index.html"
-      }
+      "rewrites": [
+        {
+          "source": "/sitemap",
+          "function": "siteMap"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
       ],
       "target": "indonesia",
       "public": "id/public",
@@ -35,10 +39,12 @@
       ]
     },
     {
-      "rewrites": [ {
-        "source": "**",
-        "destination": "/index.html"
-      }],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
       "target": "main",
       "public": "main/public",
       "ignore": [
@@ -47,5 +53,8 @@
         "**/node_modules/**"
       ]
     }
-  ]
+  ],
+  "functions": {
+    "source": "functions"
+  }
 }
