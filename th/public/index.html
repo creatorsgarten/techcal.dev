@@ -195,10 +195,28 @@
     rel="stylesheet"
   />
     <script src="/js/main.js"></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"
-    ></script>
     <script type='text/javascript' defer src='https://platform-api.sharethis.com/js/sharethis.js#property=5e1fc9b046e7090012e63660&product=sticky-share-buttons&cms=sop' async='async'></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js"
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDVUjvr5ACOn6lABf24ppbrZ0uWJys8DlU",
+        authDomain: "techcal-th.firebaseapp.com",
+        databaseURL: "https://techcal-th.firebaseio.com",
+        projectId: "techcal-th",
+        storageBucket: "techcal-th.appspot.com",
+        messagingSenderId: "795990219032",
+        appId: "1:795990219032:web:1a9aad3949f59686aae66d"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // Initialize Analytics and get a reference to the service
+      const analytics = getAnalytics(app);
+    </script>
   </body>
 </html>
