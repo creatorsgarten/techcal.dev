@@ -1,0 +1,37 @@
+name: Sync Discord message
+on:
+  push:
+    branches:
+      - main
+      - discord/*
+    paths-ignore:
+      - 'README.md'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  sync:
+    name: Synchronize
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v0.1.8
+        with:
+          bun-version: '0.5.5'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install
+        run: bun install
+        working-directory: discord
+      - name: Fetch
+        run: bun scripts/fetch.ts
+        working-directory: discord
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      - name: Update
+        run: bun scripts/update.ts
+        working-directory: discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_MESSAGE_ID: ${{ secrets.DISCORD_MESSAGE_ID }}
