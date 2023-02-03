@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - discord/*
     paths-ignore:
       - 'README.md'
   workflow_dispatch:
