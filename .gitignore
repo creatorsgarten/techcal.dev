@@ -65,3 +65,4 @@ node_modules/
 .env
 .envrc
 functions/service_accoun_key.json
+.data
