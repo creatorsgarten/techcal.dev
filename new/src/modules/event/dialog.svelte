@@ -13,7 +13,7 @@
 
   export let onClose: () => void
   export let open: boolean
-  export let item: GoogleCalendarItem;
+  export let item: GoogleCalendarItem
 </script>
 
 <Transition appear show={open}>

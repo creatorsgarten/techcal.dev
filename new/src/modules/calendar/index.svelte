@@ -10,29 +10,37 @@
   import ChevronLeft from '../icons/chevronLeft.svelte'
   import ChevronRight from '../icons/chevronRight.svelte'
 
-  export let onPrev: () => void;
-  export let onNext: () => void;
+  export let onPrev: () => void
+  export let onNext: () => void
 
-  export let firstDayOfThisMonth: Dayjs;
-  export let today: Dayjs;
-  export let calendarDays: Dayjs[];
+  export let firstDayOfThisMonth: Dayjs
+  export let today: Dayjs
+  export let calendarDays: Dayjs[]
 
-  let isMobile: boolean;
+  let isMobile: boolean
 </script>
 
-<MediaQuery query='(max-width: 640px)' bind:matches={isMobile}/>
+<MediaQuery query="(max-width: 640px)" bind:matches={isMobile} />
 
-<div class="max-w-6xl mx-auto sm:px-8 h-full sm:h-auto overflow-hidden sm:overflow-visible">
+<div
+  class="max-w-6xl mx-auto sm:px-8 h-full sm:h-auto overflow-hidden sm:overflow-visible"
+>
   <div class="flex justify-between pb-2 px-2">
     <h1 class="text-3xl pl-1 sm:pl-0">
       <span class="font-bold">{firstDayOfThisMonth.format('MMMM')}</span>
       <span class="font-light">{firstDayOfThisMonth.format('YYYY')}</span>
     </h1>
     <div class="flex space-x-2 sm:space-x-4">
-      <button on:click={onPrev} class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition">
+      <button
+        on:click={onPrev}
+        class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
+      >
         <ChevronLeft class="w-6 h-6" />
       </button>
-      <button on:click={onNext} class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition">
+      <button
+        on:click={onNext}
+        class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
+      >
         <ChevronRight class="w-6 h-6" />
       </button>
     </div>

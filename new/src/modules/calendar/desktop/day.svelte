@@ -1,8 +1,8 @@
 <script lang="ts">
   import Event from '../../event/index.svelte'
 
-  import type { Dayjs } from "dayjs"
-  import type { GoogleCalendarItem } from "../../../@types/GoogleCalendar"
+  import type { Dayjs } from 'dayjs'
+  import type { GoogleCalendarItem } from '../../../@types/GoogleCalendar'
 
   export let date: Dayjs
   export let firstDayOfThisMonth: Dayjs
@@ -14,16 +14,30 @@
   const isWeekend = date.day() === 0 || date.day() === 6
 </script>
 
-<div class={`aspect-[3/2] p-2 border dark:border-neutral-500 h-full w-full ${isWeekend ? 'bg-gray-100 dark:bg-neutral-800' : ''} select-none`}>
-  <p class={`${isInCurrentMonth ? 'text-gray-950 dark:text-white' : 'text-gray-400 dark:text-neutral-500'} text-right text-sm`}>
+<div
+  class={`aspect-[3/2] p-2 border dark:border-neutral-500 h-full w-full ${
+    isWeekend ? 'bg-gray-100 dark:bg-neutral-800' : ''
+  } select-none`}
+>
+  <p
+    class={`${
+      isInCurrentMonth
+        ? 'text-gray-950 dark:text-white'
+        : 'text-gray-400 dark:text-neutral-500'
+    } text-right text-sm`}
+  >
     {#if date.date() === 1}
       <span class="font-semibold py-0.5">{date.format('MMMM')}</span>
     {/if}
-    <span class={diffFromToday === 0 ? 'bg-orange-600 text-white px-2 rounded-md py-0.5' : 'py-0.5'}>{date.date()}</span>
+    <span
+      class={diffFromToday === 0
+        ? 'bg-orange-600 text-white px-2 rounded-md py-0.5'
+        : 'py-0.5'}>{date.date()}</span
+    >
   </p>
   <div class="pt-1 space-y-1">
     {#each events as item}
-      <Event item={item} dayDiff={diffFromToday} />
+      <Event {item} dayDiff={diffFromToday} />
     {/each}
   </div>
 </div>

@@ -26,7 +26,10 @@
   })
 </script>
 
-<div class="snap-x flex overflow-x-auto h-full divide-x dark:divide-neutral-600" bind:this={scrollerEl}>
+<div
+  class="snap-x flex overflow-x-auto h-full divide-x dark:divide-neutral-600"
+  bind:this={scrollerEl}
+>
   {#each renderedCalendarDays as calendarDay}
     <Day date={calendarDay} events={getEvents(items, calendarDay)} {today} />
   {/each}

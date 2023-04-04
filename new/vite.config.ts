@@ -19,7 +19,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          dayjs: ['dayjs']
+          dayjs: ['dayjs'],
         },
       },
     },

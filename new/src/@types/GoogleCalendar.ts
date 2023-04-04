@@ -1,6 +1,6 @@
 export interface GoogleCalendar {
-  accessRole: 'reader',
-  defaultReminders: [],
+  accessRole: 'reader'
+  defaultReminders: []
   etag: string
   kind: string
   nextSyncToken: string
@@ -38,8 +38,8 @@ export interface GoogleCalendarItem {
     email: string
     self: boolean
   }
-  start: FullDay | DayWithTime,
-  end: FullDay | DayWithTime,
+  start: FullDay | DayWithTime
+  end: FullDay | DayWithTime
   transparency: string
   iCalUID: string
   sequence: number
