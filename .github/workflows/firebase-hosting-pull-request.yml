@@ -13,11 +13,17 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v2
-      - name: Build Svelte app
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.0.0
+          run_install: true
+      - name: 'build'
         run: |
-          cd new
-          npm i -g pnpm
-          pnpm i --frozen-lockfile
+          cd web
           pnpm build
           cd ..
       - uses: FirebaseExtended/action-hosting-deploy@v0
