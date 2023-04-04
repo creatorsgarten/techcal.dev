@@ -12,7 +12,7 @@
   dayjs.extend(timezone)
   dayjs.extend(isBetween)
 
-  let firstDayOfThisMonth = dayjs().tz('Asia/Bangkok').set('date', 1)
+  let firstDayOfThisMonth = dayjs().tz('Asia/Bangkok').set('date', 1).startOf('day')
 
   let onPrev = () => {
     firstDayOfThisMonth = firstDayOfThisMonth.subtract(1, 'month')
@@ -21,7 +21,7 @@
     firstDayOfThisMonth = firstDayOfThisMonth.add(1, 'month')
   }
 
-  const today = dayjs().tz('Asia/Bangkok')
+  const today = dayjs().tz('Asia/Bangkok').startOf('day')
 
   $: dayInWeekOfFirstDay = firstDayOfThisMonth.day()
   $: lastDayOfMonth = firstDayOfThisMonth.endOf('month').date()
