@@ -4,7 +4,7 @@ import type { GoogleCalendar } from "../@types/GoogleCalendar";
 export const getCalendarEvents = async (begin: Dayjs, end: Dayjs) => {
   let resp: GoogleCalendar = await fetch(`https://www.googleapis.com/calendar/v3/calendars/tech.cal.th@gmail.com/events?${
     new URLSearchParams({
-      key: 'AIzaSyABEaQAnCWPpjZ2dfvPR8zhtkmFkxddOn0',
+      key: 'AIzaSyBpmxgK9dbso4pEYWvg47SOoIqIBB83Pno',
       timeMin: begin.toISOString(),
       timeMax: end.toISOString(),
       singleEvents: 'true',
