@@ -10,5 +10,5 @@ export const getEvents = (items: GoogleCalendarItem[], day: Dayjs) =>
     // @ts-ignore
     let endDay = dayjs(item.end.dateTime ?? item.end.date)
 
-    return day.isBetween(startDay.startOf('day'), endDay.endOf('day'))
+    return day.add(1, 'second').isBetween(startDay.startOf('day'), endDay.endOf('day'))
   })
