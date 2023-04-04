@@ -9,6 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Build Svelte app
+        run: |
+          cd new
+          npm i -g pnpm
+          pnpm i --frozen-lockfile
+          pnpm build
+          cd ..
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

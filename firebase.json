@@ -12,7 +12,7 @@
         }
       ],
       "target": "thailand",
-      "public": "th/public",
+      "public": "new/dist",
       "ignore": [
         "firebase.json",
         "**/.*",
