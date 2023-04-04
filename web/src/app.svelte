@@ -40,7 +40,7 @@
 <main class="h-full overflow-y-hidden sm:overflow-auto space-y-2">
   <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
     <div>
-      <h1 class="text-2xl sm:text-3xl text-blue-500">
+      <h1 class="text-2xl sm:text-3xl text-sky-500 dark:text-sky-400">
         {`<thai-tech-calendar />`}
       </h1>
       <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->

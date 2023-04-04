@@ -11,3 +11,7 @@ body,
 html {
   @apply bg-gray-50 dark:bg-neutral-900 dark:text-white;
 }
+
+a {
+  @apply text-blue-500;
+}

@@ -38,3 +38,8 @@
     {/each}
   </div>
 </section>
+
+<footer class="pt-8 text-xs text-center">
+  <p>Originally made by <a href="https://twitter.com/thangman22">@thangman22</a> · Redesigned by <a href="https://facebook.com/rayriffy">@rayriffy</a></p>
+  <p>Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a></p>
+</footer>
