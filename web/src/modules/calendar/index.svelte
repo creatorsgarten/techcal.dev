@@ -25,8 +25,8 @@
 <div
   class="max-w-6xl mx-auto sm:px-8 h-full sm:h-auto overflow-hidden sm:overflow-visible"
 >
-  <div class="flex justify-between pb-2 px-2">
-    <h1 class="text-3xl pl-1 sm:pl-0">
+  <div class="flex justify-between px-2">
+    <h1 class="text-2xl sm:text-3xl pl-1 sm:pl-0">
       <span class="font-bold">{firstDayOfThisMonth.format('MMMM')}</span>
       <span class="font-light">{firstDayOfThisMonth.format('YYYY')}</span>
     </h1>

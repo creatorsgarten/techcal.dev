@@ -31,7 +31,7 @@
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <DialogOverlay class="fixed inset-0 bg-gray-500/75" />
+        <DialogOverlay class="fixed inset-0 bg-gray-500/75 dark:bg-neutral-500/75" />
       </TransitionChild>
 
       <TransitionChild

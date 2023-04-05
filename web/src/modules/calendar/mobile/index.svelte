@@ -27,7 +27,7 @@
 </script>
 
 <div
-  class="snap-x flex overflow-x-auto h-full divide-x dark:divide-neutral-600"
+  class="snap-x flex overflow-x-auto h-full divide-x dark:divide-neutral-600 pt-1"
   bind:this={scrollerEl}
 >
   {#each renderedCalendarDays as calendarDay}

@@ -20,7 +20,7 @@
   } dark:bg-neutral-800`}
 >
   <div
-    class={`py-2 text-center bg-gray-50 dark:bg-neutral-900 text-sm border-b space-x-1 ${
+    class={`py-2 text-center bg-gray-50 dark:bg-neutral-900 text-xs border-b space-x-1 ${
       diffFromToday === 0
         ? 'text-gray-950 dark:text-white'
         : 'text-gray-400 dark:text-neutral-400'
