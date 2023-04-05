@@ -5,6 +5,8 @@ import tsPaths from 'vite-tsconfig-paths'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { VitePWA } from 'vite-plugin-pwa'
 
+import { runtimeCaching } from './runtimeCaching'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -43,6 +45,9 @@ export default defineConfig({
           },
         ],
       },
+      workbox: {
+        runtimeCaching,
+      }
     }),
     // @ts-ignore
     ...(process.env.ANALYZE === 'true'

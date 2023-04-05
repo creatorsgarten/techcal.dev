@@ -64,6 +64,9 @@ importers:
       vite-plugin-pwa:
         specifier: ^0.14.7
         version: 0.14.7(vite@4.2.1)(workbox-build@6.5.4)(workbox-window@6.5.4)
+      workbox-build:
+        specifier: ^6.5.4
+        version: 6.5.4
 
 packages:
 
