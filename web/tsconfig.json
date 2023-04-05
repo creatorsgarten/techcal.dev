@@ -17,7 +17,7 @@
     "paths": {
       "$types/*": ["src/@types/*"],
       "$functions/*": ["src/functions/*"],
-      "$modules/*": ["src/modules/*"],
+      "$modules/*": ["src/modules/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],

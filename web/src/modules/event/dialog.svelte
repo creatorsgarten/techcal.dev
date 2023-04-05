@@ -45,7 +45,9 @@
           >
             <Meta {item} />
 
-            <article class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all">
+            <article
+              class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
+            >
               {@html linkify(item.description ?? '')}
             </article>
 
