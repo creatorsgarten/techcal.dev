@@ -9,10 +9,11 @@
   export let calendarDays: Dayjs[]
   export let firstDayOfThisMonth: Dayjs
   export let today: Dayjs
-  export let items: GoogleCalendarItem[]
+  // prettier-ignore
+  export let items: GoogleCalendarItem[];
 </script>
 
-<header class="col-span-7 grid grid-cols-7 text-center py-1">
+<header class="col-span-7 grid grid-cols-7 text-center py-1 mt-2">
   <p>Sun</p>
   <p>Mon</p>
   <p>Tue</p>
