@@ -17,7 +17,8 @@
   export let today: Dayjs
   export let calendarDays: Dayjs[]
 
-  let isMobile: boolean
+  // prettier-ignore
+  let isMobile: boolean;
 </script>
 
 <MediaQuery query="(max-width: 640px)" bind:matches={isMobile} />
@@ -33,12 +34,14 @@
     <div class="flex space-x-2 sm:space-x-4">
       <button
         on:click={onPrev}
+        aria-label="Previous"
         class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
       >
         <ChevronLeft class="w-6 h-6" />
       </button>
       <button
         on:click={onNext}
+        aria-label="Next"
         class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
       >
         <ChevronRight class="w-6 h-6" />
