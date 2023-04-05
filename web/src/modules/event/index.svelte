@@ -19,7 +19,7 @@
       ${dayDiff < 0 ? 'opacity-50' : ''}
     `}
     ><span
-      class="line-clamp-3 sm:line-clamp-1 text-xs sm:text-sm text-left w-full"
+      class="line-clamp-3 sm:line-clamp-1 text-sm text-left w-full"
       >{item.summary}</span
     ></button
   >
