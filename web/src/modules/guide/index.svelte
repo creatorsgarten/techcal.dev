@@ -43,11 +43,11 @@
           leaveTo="opacity-0 scale-95"
         >
           <div
-            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all"
             use:dialog.modal
           >
-            <article class="text-gray-700">
-              <h4 class="font-medium text-lg text-gray-950">
+            <article class="text-gray-700 dark:text-neutral-100">
+              <h4 class="font-medium text-lg text-gray-950 dark:text-white">
                 เพิ่ม Event ยังไง?
               </h4>
               <ol class="list-decimal pl-4">
@@ -67,7 +67,7 @@
                 ที่ไม่เกี่ยวกับ Tech ลงใน Calendar หลัก นะครับ
               </p>
               <img src="/demo.png" class="w-full h-auto" alt="ตัวอย่าง" />
-              <h4 class="font-medium text-lg text-gray-950">
+              <h4 class="font-medium text-lg text-gray-950 dark:text-white">
                 แจ้งเตือน Event ยังไง?
               </h4>
               <ol class="list-decimal pl-4">

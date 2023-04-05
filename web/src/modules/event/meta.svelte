@@ -10,7 +10,7 @@
 </script>
 
 <section>
-  <h3 class="text-lg font-medium leading-6 text-gray-900">
+  <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
     {item.summary}
   </h3>
   {#if item.location}

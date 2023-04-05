@@ -40,12 +40,12 @@
           leaveTo="opacity-0 scale-95"
         >
           <div
-            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all"
             use:dialog.modal
           >
             <Meta {item} />
 
-            <article class="mt-2 text-gray-600 text-sm break-all">
+            <article class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all">
               {@html linkify(item.description ?? '')}
             </article>
 
