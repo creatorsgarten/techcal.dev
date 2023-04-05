@@ -14,9 +14,9 @@
 
 <button
   on:click={() => (open = true)}
-  class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-xl border-b-4 border-b-gray-300 shrink-0"
+  class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-xl border-b-4 border-b-gray-300 shrink-0 dark:bg-neutral-700 dark:border-b-neutral-800"
 >
-  <QuestionMark class="w-6 h-6 text-gray-950" />
+  <QuestionMark class="w-6 h-6 text-gray-950 dark:text-white" />
 </button>
 
 <Transition appear show={open}>

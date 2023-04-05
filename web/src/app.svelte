@@ -5,7 +5,7 @@
   import timezone from 'dayjs/plugin/timezone'
   import isBetween from 'dayjs/plugin/isBetween'
 
-  import DesktopCalendar from './modules/calendar/index.svelte'
+  import Calendar from './modules/calendar/index.svelte'
   import Guide from './modules/guide/index.svelte'
 
   dayjs.extend(utc)
@@ -14,11 +14,8 @@
 
   let firstDayOfThisMonth = dayjs().tz('Asia/Bangkok').set('date', 1).startOf('day')
 
-  let onPrev = () => {
-    firstDayOfThisMonth = firstDayOfThisMonth.subtract(1, 'month')
-  }
-  let onNext = () => {
-    firstDayOfThisMonth = firstDayOfThisMonth.add(1, 'month')
+  let onShift = (amount: number) => () => {
+    firstDayOfThisMonth = firstDayOfThisMonth.add(amount, 'month')
   }
 
   const today = dayjs().tz('Asia/Bangkok').startOf('day')
@@ -50,12 +47,12 @@
     </div>
   </div>
 
-  <DesktopCalendar
+  <Calendar
     {...{
       firstDayOfThisMonth,
       calendarDays,
-      onPrev,
-      onNext,
+      onPrev: onShift(-1),
+      onNext: onShift(1),
       today,
     }}
   />
