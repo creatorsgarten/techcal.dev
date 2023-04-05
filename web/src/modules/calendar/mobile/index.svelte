@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import Day from './day.svelte'
 
   import { getEvents } from '$functions/getEvents'
@@ -12,18 +11,23 @@
   export let today: Dayjs
   export let items: GoogleCalendarItem[]
 
-  const renderedCalendarDays = calendarDays.filter(
+  $: renderedCalendarDays = calendarDays.filter(
     o => o.month() === firstDayOfThisMonth.month()
   )
+
   let scrollerEl: HTMLDivElement
 
-  onMount(() => {
-    if (scrollerEl && today.month() === firstDayOfThisMonth.month()) {
-      scrollerEl.scrollLeft =
-        (scrollerEl.scrollWidth / renderedCalendarDays.length) *
-        (today.date() - 1)
+  $: {
+    if (scrollerEl) {
+      if(today.month() === firstDayOfThisMonth.month()) {
+        scrollerEl.scrollLeft =
+          (scrollerEl.scrollWidth / renderedCalendarDays.length) *
+          (today.date() - 1)
+      } else {
+        scrollerEl.scrollLeft = 0
+      }
     }
-  })
+  }
 </script>
 
 <div

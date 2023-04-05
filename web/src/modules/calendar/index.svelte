@@ -1,21 +1,34 @@
 <script lang="ts">
+  import dayjs from 'dayjs'
   import MediaQuery from 'svelte-media-queries'
-
-  import type { Dayjs } from 'dayjs'
-
-  import { getCalendarEvents } from '$functions/getCalendarEvents'
 
   import Desktop from './desktop/index.svelte'
   import Mobile from './mobile/index.svelte'
-  import ChevronLeft from '../icons/chevronLeft.svelte'
-  import ChevronRight from '../icons/chevronRight.svelte'
+  import Renderer from './renderer.svelte'
 
-  export let onPrev: () => void
-  export let onNext: () => void
+  let firstDayOfThisMonth = dayjs()
+    .tz('Asia/Bangkok')
+    .set('date', 1)
+    .startOf('day')
 
-  export let firstDayOfThisMonth: Dayjs
-  export let today: Dayjs
-  export let calendarDays: Dayjs[]
+  let onShift = (amount: number) => () => {
+    firstDayOfThisMonth = firstDayOfThisMonth.add(amount, 'month')
+  }
+
+  let today = dayjs().tz('Asia/Bangkok').startOf('day')
+
+  $: dayInWeekOfFirstDay = firstDayOfThisMonth.day()
+  $: lastDayOfMonth = firstDayOfThisMonth.endOf('month').date()
+
+  $: calendarDays = Array.from({
+    length:
+      // leftover of last month
+      dayInWeekOfFirstDay +
+      // flood until the end of the month
+      lastDayOfMonth +
+      // leftover to fill until calendar full
+      (7 - ((dayInWeekOfFirstDay + lastDayOfMonth) % 7)),
+  }).map((_, i) => firstDayOfThisMonth.add(i - dayInWeekOfFirstDay, 'day'))
 
   // prettier-ignore
   let isMobile: boolean;
@@ -23,71 +36,30 @@
 
 <MediaQuery query="(max-width: 640px)" bind:matches={isMobile} />
 
-<div
-  class="max-w-6xl mx-auto sm:px-8 h-full sm:h-auto overflow-hidden sm:overflow-visible"
+<Renderer
+  bind:firstDayOfThisMonth
+  bind:today
+  bind:calendarDays
+  bind:onShift
+  let:items
 >
-  <div class="flex justify-between px-2">
-    <h1 class="text-2xl sm:text-3xl pl-1 sm:pl-0">
-      <span class="font-bold">{firstDayOfThisMonth.format('MMMM')}</span>
-      <span class="font-light">{firstDayOfThisMonth.format('YYYY')}</span>
-    </h1>
-    <div class="flex space-x-2 sm:space-x-4">
-      <button
-        on:click={onPrev}
-        aria-label="Previous"
-        class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
-      >
-        <ChevronLeft class="w-6 h-6" />
-      </button>
-      <button
-        on:click={onNext}
-        aria-label="Next"
-        class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
-      >
-        <ChevronRight class="w-6 h-6" />
-      </button>
-    </div>
-  </div>
-
-  {#await getCalendarEvents(calendarDays[0], calendarDays[calendarDays.length - 1])}
-    {#if isMobile}
-      <Mobile
-        {...{
-          calendarDays,
-          today,
-          firstDayOfThisMonth,
-          items: [],
-        }}
-      />
-    {:else}
-      <Desktop
-        {...{
-          calendarDays,
-          today,
-          firstDayOfThisMonth,
-          items: [],
-        }}
-      />
-    {/if}
-  {:then items}
-    {#if isMobile}
-      <Mobile
-        {...{
-          calendarDays,
-          today,
-          firstDayOfThisMonth,
-          items,
-        }}
-      />
-    {:else}
-      <Desktop
-        {...{
-          calendarDays,
-          today,
-          firstDayOfThisMonth,
-          items,
-        }}
-      />
-    {/if}
-  {/await}
-</div>
+  {#if isMobile}
+    <Mobile
+      {...{
+        calendarDays,
+        today,
+        firstDayOfThisMonth,
+        items,
+      }}
+    />
+  {:else}
+    <Desktop
+      {...{
+        calendarDays,
+        today,
+        firstDayOfThisMonth,
+        items,
+      }}
+    />
+  {/if}
+</Renderer>

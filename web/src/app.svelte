@@ -11,30 +11,6 @@
   dayjs.extend(utc)
   dayjs.extend(timezone)
   dayjs.extend(isBetween)
-
-  let firstDayOfThisMonth = dayjs()
-    .tz('Asia/Bangkok')
-    .set('date', 1)
-    .startOf('day')
-
-  let onShift = (amount: number) => () => {
-    firstDayOfThisMonth = firstDayOfThisMonth.add(amount, 'month')
-  }
-
-  const today = dayjs().tz('Asia/Bangkok').startOf('day')
-
-  $: dayInWeekOfFirstDay = firstDayOfThisMonth.day()
-  $: lastDayOfMonth = firstDayOfThisMonth.endOf('month').date()
-
-  $: calendarDays = Array.from({
-    length:
-      // leftover of last month
-      dayInWeekOfFirstDay +
-      // flood until the end of the month
-      lastDayOfMonth +
-      // leftover to fill until calendar full
-      (7 - ((dayInWeekOfFirstDay + lastDayOfMonth) % 7)),
-  }).map((_, i) => firstDayOfThisMonth.add(i - dayInWeekOfFirstDay, 'day'))
 </script>
 
 <main class="h-full overflow-y-hidden sm:overflow-auto space-y-2">
@@ -50,13 +26,5 @@
     </div>
   </div>
 
-  <Calendar
-    {...{
-      firstDayOfThisMonth,
-      calendarDays,
-      onPrev: onShift(-1),
-      onNext: onShift(1),
-      today,
-    }}
-  />
+  <Calendar />
 </main>
