@@ -12,7 +12,10 @@
   dayjs.extend(timezone)
   dayjs.extend(isBetween)
 
-  let firstDayOfThisMonth = dayjs().tz('Asia/Bangkok').set('date', 1).startOf('day')
+  let firstDayOfThisMonth = dayjs()
+    .tz('Asia/Bangkok')
+    .set('date', 1)
+    .startOf('day')
 
   let onShift = (amount: number) => () => {
     firstDayOfThisMonth = firstDayOfThisMonth.add(amount, 'month')

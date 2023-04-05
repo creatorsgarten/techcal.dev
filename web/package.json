@@ -26,8 +26,9 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "@rgossiaux/svelte-headlessui": "^1.0.2",
     "dayjs": "^1.11.7",
-    "svelte-media-queries": "^1.5.4"
+    "svelte-headlessui": "^0.0.15",
+    "svelte-media-queries": "^1.5.4",
+    "svelte-transition": "^0.0.7"
   }
 }

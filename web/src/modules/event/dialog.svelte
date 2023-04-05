@@ -1,74 +1,67 @@
 <script lang="ts">
-  import {
-    Dialog,
-    DialogOverlay,
-    DialogTitle,
-    Transition,
-    TransitionChild,
-  } from '@rgossiaux/svelte-headlessui'
+  import Transition from 'svelte-transition'
 
   import { linkify } from '../../functions/linkify'
 
+  import type { createDialog } from 'svelte-headlessui'
   import type { GoogleCalendarItem } from '../../@types/GoogleCalendar'
 
-  export let onClose: () => void
-  export let open: boolean
-  export let item: GoogleCalendarItem
+  export let dialog: ReturnType<typeof createDialog>
+  // prettier-ignore
+  export let item: GoogleCalendarItem;
 </script>
 
-<Transition appear show={open}>
-  <Dialog
-    as="div"
-    class="fixed inset-0 z-10 overflow-y-auto"
-    on:close={onClose}
-  >
-    <div class="min-h-screen px-4 text-center">
-      <TransitionChild
-        enter="ease-out duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="ease-in duration-200"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <DialogOverlay class="fixed inset-0 bg-gray-500/75 dark:bg-neutral-500/75" />
-      </TransitionChild>
+<div class="relative z-10">
+  <Transition show={$dialog.expanded}>
+    <Transition
+      enter="ease-out duration-300"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      leave="ease-in duration-200"
+      leaveFrom="opacity-100"
+      leaveTo="opacity-0"
+    >
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div
+        class="fixed inset-0 bg-black bg-opacity-25"
+        on:click={dialog.close}
+      />
+    </Transition>
 
-      <TransitionChild
-        enter="ease-out duration-300"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="ease-in duration-200"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
-      >
-        <span class="inline-block h-screen align-middle" aria-hidden="true">
-          &#8203;
-        </span>
-        <div
-          class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+    <div class="fixed inset-0 overflow-y-auto">
+      <div class="flex min-h-full items-center justify-center p-4 text-center">
+        <Transition
+          enter="ease-out duration-300"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
         >
-          <DialogTitle
-            as="h3"
-            class="text-lg font-medium leading-6 text-gray-900"
+          <div
+            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+            use:dialog.modal
           >
-            {item.summary}
-          </DialogTitle>
-          <div class="mt-2 text-gray-600 text-sm break-all">
-            {@html linkify(item.description ?? '')}
-          </div>
+            <h3 class="text-lg font-medium leading-6 text-gray-900">
+              {item.summary}
+            </h3>
 
-          <div class="mt-4 flex justify-end">
-            <button
-              type="button"
-              class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-              on:click={onClose}
-            >
-              Close
-            </button>
+            <article class="mt-2 text-gray-600 text-sm break-all">
+              {@html linkify(item.description ?? '')}
+            </article>
+
+            <div class="mt-4 flex justify-end">
+              <button
+                type="button"
+                class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                on:click={dialog.close}
+              >
+                Close
+              </button>
+            </div>
           </div>
-        </div>
-      </TransitionChild>
+        </Transition>
+      </div>
     </div>
-  </Dialog>
-</Transition>
+  </Transition>
+</div>
