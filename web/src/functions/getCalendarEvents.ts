@@ -1,5 +1,5 @@
 import type { Dayjs } from 'dayjs'
-import type { GoogleCalendar } from '../@types/GoogleCalendar'
+import type { GoogleCalendar } from '$types/GoogleCalendar'
 
 export const getCalendarEvents = async (begin: Dayjs, end: Dayjs) => {
   let resp: GoogleCalendar = await fetch(

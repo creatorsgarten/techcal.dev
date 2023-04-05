@@ -2,7 +2,7 @@
   import Event from '../../event/index.svelte'
 
   import type { Dayjs } from 'dayjs'
-  import type { GoogleCalendarItem } from '../../../@types/GoogleCalendar'
+  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
 
   export let date: Dayjs
   export let firstDayOfThisMonth: Dayjs

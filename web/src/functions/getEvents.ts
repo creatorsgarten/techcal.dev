@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 
 import type { Dayjs } from 'dayjs'
-import type { GoogleCalendarItem, DayWithTime, FullDay } from '../@types/GoogleCalendar'
+import type { GoogleCalendarItem, DayWithTime, FullDay } from '$types/GoogleCalendar'
 
 export const getEvents = (items: GoogleCalendarItem[], day: Dayjs) =>
   items.filter(item => {

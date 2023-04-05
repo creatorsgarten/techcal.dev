@@ -2,10 +2,10 @@
   import { onMount } from 'svelte'
   import Day from './day.svelte'
 
-  import { getEvents } from '../../../functions/getEvents'
+  import { getEvents } from '$functions/getEvents'
 
   import type { Dayjs } from 'dayjs'
-  import type { GoogleCalendarItem } from '../../../@types/GoogleCalendar'
+  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
 
   export let calendarDays: Dayjs[]
   export let firstDayOfThisMonth: Dayjs

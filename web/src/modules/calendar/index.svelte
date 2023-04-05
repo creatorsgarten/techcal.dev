@@ -3,7 +3,7 @@
 
   import type { Dayjs } from 'dayjs'
 
-  import { getCalendarEvents } from '../../functions/getCalendarEvents'
+  import { getCalendarEvents } from '$functions/getCalendarEvents'
 
   import Desktop from './desktop/index.svelte'
   import Mobile from './mobile/index.svelte'

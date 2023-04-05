@@ -1,10 +1,10 @@
 <script lang="ts">
   import Event from '../../event/index.svelte'
 
-  import { getEvents } from '../../../functions/getEvents'
+  import { getEvents } from '$functions/getEvents'
 
   import type { Dayjs } from 'dayjs'
-  import type { GoogleCalendarItem } from '../../../@types/GoogleCalendar'
+  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
 
   export let date: Dayjs
   export let today: Dayjs

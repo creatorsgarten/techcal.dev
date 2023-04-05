@@ -1,10 +1,10 @@
 <script lang="ts">
   import Transition from 'svelte-transition'
 
-  import { linkify } from '../../functions/linkify'
+  import { linkify } from '$functions/linkify'
 
   import type { createDialog } from 'svelte-headlessui'
-  import type { GoogleCalendarItem } from '../../@types/GoogleCalendar'
+  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
   import Meta from './meta.svelte'
 
   export let dialog: ReturnType<typeof createDialog>

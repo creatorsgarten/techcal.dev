@@ -1,6 +1,6 @@
 <script lang="ts">
   import dayjs from 'dayjs'
-  import type { DayWithTime, FullDay } from '../../@types/GoogleCalendar'
+  import type { DayWithTime, FullDay } from '$types/GoogleCalendar'
 
   export let calendarTime: FullDay | DayWithTime
 

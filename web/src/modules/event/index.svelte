@@ -3,7 +3,7 @@
 
   import Dialog from './dialog.svelte'
 
-  import type { GoogleCalendarItem } from '../../@types/GoogleCalendar'
+  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
 
   export let item: GoogleCalendarItem
   export let dayDiff: number

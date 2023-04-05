@@ -2,7 +2,7 @@
   import Buildings from '../icons/buildings.svelte'
   import Time from '../icons/time.svelte'
 
-  import type { GoogleCalendarItem } from '../../@types/GoogleCalendar'
+  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
   import TimeStringify from './timeStringify.svelte'
 
   // prettier-ignore

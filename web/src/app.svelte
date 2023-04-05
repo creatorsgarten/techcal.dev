@@ -5,8 +5,8 @@
   import timezone from 'dayjs/plugin/timezone'
   import isBetween from 'dayjs/plugin/isBetween'
 
-  import Calendar from './modules/calendar/index.svelte'
-  import Guide from './modules/guide/index.svelte'
+  import Calendar from '$modules/calendar/index.svelte'
+  import Guide from '$modules/guide/index.svelte'
 
   dayjs.extend(utc)
   dayjs.extend(timezone)
