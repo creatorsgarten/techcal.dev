@@ -7,7 +7,7 @@ export const getCalendarEvents = async (begin: Dayjs, end: Dayjs) => {
       {
         key: 'AIzaSyBpmxgK9dbso4pEYWvg47SOoIqIBB83Pno',
         timeMin: begin.toISOString(),
-        timeMax: end.toISOString(),
+        timeMax: end.endOf('day').toISOString(),
         singleEvents: 'true',
         maxResults: '999',
       }
