@@ -22,7 +22,7 @@
   <p>Fri</p>
   <p>Sat</p>
 </header>
-<section class="relative mt-4">
+<section class="relative mt-4 group">
   <div
     class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
   />
