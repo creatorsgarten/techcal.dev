@@ -48,6 +48,11 @@
             <article
               class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
             >
+              <p class="pb-2">
+                <a href={item.htmlLink} target="_blank" rel="noreferrer"
+                  >Google Calendar</a
+                >
+              </p>
               {@html linkify(item.description ?? '')}
             </article>
 

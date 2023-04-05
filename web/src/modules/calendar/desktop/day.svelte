@@ -15,7 +15,7 @@
 </script>
 
 <div
-  class={`aspect-[3/2] p-2 border dark:border-neutral-500 h-full w-full ${
+  class={`aspect-[3/2] p-2 border dark:border-neutral-600 h-full w-full ${
     isWeekend ? 'bg-gray-100 dark:bg-neutral-800' : ''
   } select-none`}
 >
