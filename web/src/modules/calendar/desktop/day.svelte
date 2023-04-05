@@ -9,9 +9,9 @@
   export let today: Dayjs
   export let events: GoogleCalendarItem[]
 
-  const diffFromToday = Math.floor(date.diff(today, 'day', true))
-  const isInCurrentMonth = date.month() === firstDayOfThisMonth.month()
-  const isWeekend = date.day() === 0 || date.day() === 6
+  $: diffFromToday = Math.floor(date.diff(today, 'day', true))
+  $: isInCurrentMonth = date.month() === firstDayOfThisMonth.month()
+  $: isWeekend = date.day() === 0 || date.day() === 6
 </script>
 
 <div

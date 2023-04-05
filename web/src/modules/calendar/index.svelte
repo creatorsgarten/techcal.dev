@@ -15,7 +15,7 @@
     firstDayOfThisMonth = firstDayOfThisMonth.add(amount, 'month')
   }
 
-  let today = dayjs().tz('Asia/Bangkok').startOf('day')
+  const today = dayjs().tz('Asia/Bangkok').startOf('day')
 
   $: dayInWeekOfFirstDay = firstDayOfThisMonth.day()
   $: lastDayOfMonth = firstDayOfThisMonth.endOf('month').date()
@@ -38,28 +38,24 @@
 
 <Renderer
   bind:firstDayOfThisMonth
-  bind:today
-  bind:calendarDays
+  filterStart={calendarDays[0]}
+  filterEnd={calendarDays[calendarDays.length - 1]}
   bind:onShift
   let:items
 >
   {#if isMobile}
     <Mobile
-      {...{
-        calendarDays,
-        today,
-        firstDayOfThisMonth,
-        items,
-      }}
+      bind:calendarDays
+      bind:firstDayOfThisMonth
+      {items}
+      {today}
     />
   {:else}
     <Desktop
-      {...{
-        calendarDays,
-        today,
-        firstDayOfThisMonth,
-        items,
-      }}
+      bind:calendarDays
+      bind:firstDayOfThisMonth
+      {items}
+      {today}
     />
   {/if}
 </Renderer>

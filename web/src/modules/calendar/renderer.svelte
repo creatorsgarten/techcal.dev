@@ -11,13 +11,12 @@
   export let onShift: (amount: number) => () => void
 
   export let firstDayOfThisMonth: Dayjs
-  export let today: Dayjs
-  // prettier-ignore
-  export let calendarDays: Dayjs[];
+  export let filterStart: Dayjs
+  export let filterEnd: Dayjs
 
   let items: GoogleCalendarItem[] = []
   $:{
-    getCalendarEvents(calendarDays[0], calendarDays[calendarDays.length - 1]).then(o => {
+    getCalendarEvents(filterStart, filterEnd).then(o => {
       items = o
     }).catch(e => {})
   }

@@ -10,8 +10,8 @@
   export let today: Dayjs
   export let events: GoogleCalendarItem[]
 
-  const diffFromToday = Math.floor(date.diff(today, 'day', true))
-  const isWeekend = date.day() === 0 || date.day() === 6
+  $: diffFromToday = Math.floor(date.diff(today, 'day', true))
+  $: isWeekend = date.day() === 0 || date.day() === 6
 </script>
 
 <div

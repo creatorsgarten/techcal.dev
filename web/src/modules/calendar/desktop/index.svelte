@@ -33,8 +33,8 @@
       <Day
         date={calendarDay}
         events={getEvents(items, calendarDay)}
-        {today}
-        {firstDayOfThisMonth}
+        bind:today
+        bind:firstDayOfThisMonth
       />
     {/each}
   </div>
