@@ -9,7 +9,6 @@
   export let calendarDays: Dayjs[]
   export let firstDayOfThisMonth: Dayjs
   export let today: Dayjs
-  export let items: GoogleCalendarItem[]
 
   $: renderedCalendarDays = calendarDays.filter(
     o => o.month() === firstDayOfThisMonth.month()
@@ -28,6 +27,9 @@
       }
     }
   }
+
+  // prettier-ignore
+  export let items: GoogleCalendarItem[];
 </script>
 
 <div
