@@ -32,6 +32,7 @@
     </h1>
     <div class="flex space-x-2 sm:space-x-4">
       <button
+        id="month-prev"
         on:click={onShift(-1)}
         aria-label="Previous"
         class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"
@@ -39,6 +40,7 @@
         <ChevronLeft class="w-6 h-6" />
       </button>
       <button
+        id="month-next"
         on:click={onShift(1)}
         aria-label="Next"
         class="w-8 h-8 hover:bg-gray-200 hover:dark:bg-neutral-600 rounded-md inline-flex justify-center items-center text-gray-500 hover:text-gray-950 dark:text-neutral-500 hover:dark:text-white transition"

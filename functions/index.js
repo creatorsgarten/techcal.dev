@@ -34,7 +34,7 @@ exports.siteMap = functions.https.onRequest(async (req, res) => {
 
 async function listEventItems (page) {
   let eventItems = await page.evaluate(() => {
-      return Array.from(document.querySelectorAll('a.fc-day-grid-event.fc-h-event.fc-event.fc-start.fc-end.thai-tech-cal')).map(e => {
+      return Array.from(document.querySelectorAll('a.eventItem')).map(e => {
           return e.href
       })
   });
@@ -43,14 +43,14 @@ async function listEventItems (page) {
 
 async function goNext(round, page) {
   for (let index = 0; index < round; index++) {
-      await page.click('.fc-next-button')
+      await page.click('#month-prev')
       await page.waitFor(500)
   }
 }
 
 async function goBack(round, page) {
   for (let index = 0; index < round; index++) {
-      await page.click('.fc-prev-button')
+      await page.click('#month-next')
       await page.waitFor(500)
   }
 }
