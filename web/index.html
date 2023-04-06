@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      <thai-tech-calendar /> | รวม อัพเดท Tech event, Tech Meetup
-      ในไทยไว้ในที่เดียว
-    </title>
+    <title>%VITE_SITE_NAME% | %VITE_SITE_DESCRIPTION%</title>
 
     <link
       rel="apple-touch-icon"
@@ -17,27 +14,20 @@
     <link rel="mask-icon" href="/icons/icon-192x192.png" color="#FFFFFF" />
     <meta name="theme-color" content="#111111" />
 
-    <meta
-      name="Description"
-      content="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
-    />
+    <meta name="Description" content="%VITE_SITE_DESCRIPTION%" />
 
-    <meta property="fb:app_id" content="513638715949361" />
-    <meta property="og:title" content="&#x3C;thai-tech-calendar /&#x3E;" />
+    <meta property="og:title" content="%VITE_SITE_NAME%" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://th.techcal.dev" />
-    <meta property="og:image" content="https://th.techcal.dev/fb-og.png" />
-    <meta
-      property="og:description"
-      content="รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว"
-    />
+    <meta property="og:url" content="%VITE_SITE_URL%" />
+    <meta property="og:image" content="%VITE_SITE_URL%/fb-og.png" />
+    <meta property="og:description" content="%VITE_SITE_DESCRIPTION%" />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-99894003-2"
+      src="https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_ID%"
     ></script>
     <script>
       window.dataLayer = window.dataLayer || []
@@ -46,7 +36,7 @@
       }
       gtag('js', new Date())
 
-      gtag('config', 'UA-99894003-2')
+      gtag('config', '%VITE_GOOGLE_ANALYTICS_ID%')
     </script>
   </body>
 </html>

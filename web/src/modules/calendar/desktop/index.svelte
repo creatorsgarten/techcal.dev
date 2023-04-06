@@ -45,5 +45,8 @@
     Originally made by <a href="https://twitter.com/thangman22">@thangman22</a>
     · Redesigned by <a href="https://facebook.com/rayriffy">@rayriffy</a>
   </p>
-  <p>Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a> · Fork me on <a href="https://github.com/creatorsgarten/techcal.dev">GitHub</a></p>
+  <p>
+    Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a> · Fork
+    me on <a href="https://github.com/creatorsgarten/techcal.dev">GitHub</a>
+  </p>
 </footer>

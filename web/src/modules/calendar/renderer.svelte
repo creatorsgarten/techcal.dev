@@ -1,5 +1,4 @@
 <script lang="ts">
-
   import type { Dayjs } from 'dayjs'
 
   import { getCalendarEvents } from '$functions/getCalendarEvents'
@@ -15,10 +14,12 @@
   export let filterEnd: Dayjs
 
   let items: GoogleCalendarItem[] = []
-  $:{
-    getCalendarEvents(filterStart, filterEnd).then(o => {
-      items = o
-    }).catch(e => {})
+  $: {
+    getCalendarEvents(filterStart, filterEnd)
+      .then(o => {
+        items = o
+      })
+      .catch(e => {})
   }
 </script>
 

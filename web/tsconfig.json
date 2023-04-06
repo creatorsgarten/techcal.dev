@@ -18,7 +18,8 @@
       "$types/*": ["src/@types/*"],
       "$functions/*": ["src/functions/*"],
       "$modules/*": ["src/modules/*"],
-      "$context/*": ["src/context/*"]
+      "$context/*": ["src/context/*"],
+      "$locale": ["src/locale/index.ts"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],

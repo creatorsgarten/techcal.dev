@@ -1,0 +1,10 @@
+export type LocaleKey =
+  | 'howToAdd'
+  | 'howToAdd_step1'
+  | 'howToAdd_step2'
+  | 'howToAdd_step3'
+  | 'howToAdd_disclaimer'
+  | 'howToSub'
+  | 'howToSub_step1'
+  | 'howToSub_step1button'
+  | 'howToSub_step2'

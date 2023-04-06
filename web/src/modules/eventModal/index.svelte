@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { onMount } from "svelte"
+  import { onMount } from 'svelte'
 
-  import Transition from 'svelte-transition'  
+  import Transition from 'svelte-transition'
   import Meta from './meta.svelte'
-  
+
   import { createDialog } from 'svelte-headlessui'
-  import { activeEvent } from "$context/activeEvent"
+  import { activeEvent } from '$context/activeEvent'
   import { linkify } from '$functions/linkify'
 
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
@@ -22,13 +22,12 @@
       }
     })
     let dialogListener = dialog.subscribe(({ expanded }) => {
-      if (!initialLoad)
-        initialLoad = true
+      if (!initialLoad) initialLoad = true
       else if (initialLoad && expanded === false) {
         setTimeout(() => {
           item = null
         }, 300)
-        history.pushState({}, "", "/")
+        history.pushState({}, '', '/')
       }
     })
 

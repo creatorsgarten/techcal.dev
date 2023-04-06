@@ -18,7 +18,7 @@
 
   $: {
     if (scrollerEl) {
-      if(today.month() === firstDayOfThisMonth.month()) {
+      if (today.month() === firstDayOfThisMonth.month()) {
         scrollerEl.scrollLeft =
           (scrollerEl.scrollWidth / renderedCalendarDays.length) *
           (today.date() - 1)
