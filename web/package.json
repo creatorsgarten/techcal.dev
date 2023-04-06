@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode th --host",
-    "build": "zx script/build-all.mjs",
+    "build": "vite build --mode th",
+    "build-ci": "zx script/build-all.mjs",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write --plugin-search-dir=. ."
