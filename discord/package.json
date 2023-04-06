@@ -1,5 +1,5 @@
 {
-  "name": "techcal-discord",
+  "name": "@techcal/discord",
   "module": "src/main.ts",
   "type": "module",
   "devDependencies": {

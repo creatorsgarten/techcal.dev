@@ -12,7 +12,7 @@
         }
       ],
       "target": "thailand",
-      "public": "th/public",
+      "public": "web/dist",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -31,7 +31,7 @@
         }
       ],
       "target": "indonesia",
-      "public": "id/public",
+      "public": "legacy/id/public",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -46,7 +46,7 @@
         }
       ],
       "target": "main",
-      "public": "main/public",
+      "public": "legacy/main",
       "ignore": [
         "firebase.json",
         "**/.*",

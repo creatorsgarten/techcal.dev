@@ -7,8 +7,26 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.0.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: 'install'
+        run: pnpm -r i --frozen-lockfile
+      - name: 'build'
+        run: |
+          cd web
+          pnpm build
+          cd ..
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
