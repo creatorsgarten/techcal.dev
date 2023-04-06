@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
+    "dev": "vite --mode th --host",
+    "build": "vite build --mode th",
+    "build-ci": "zx script/build-all.mjs",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write --plugin-search-dir=. ."
@@ -24,7 +25,8 @@
     "tslib": "^2.5.0",
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
-    "vite-plugin-pwa": "^0.14.7"
+    "vite-plugin-pwa": "^0.14.7",
+    "zx": "^7.2.1"
   },
   "dependencies": {
     "dayjs": "^1.11.7",

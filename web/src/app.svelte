@@ -8,7 +8,9 @@
 
   import Calendar from '$modules/calendar/index.svelte'
   let guideComponent: Promise<typeof import('$modules/guide/index.svelte')>
-  let eventModalComponent: Promise<typeof import('$modules/eventModal/index.svelte')>
+  let eventModalComponent: Promise<
+    typeof import('$modules/eventModal/index.svelte')
+  >
 
   import { getCalendarEvent } from '$functions/getCalendarEvent'
   import { activeEvent } from '$context/activeEvent'
@@ -30,11 +32,10 @@
       try {
         activeEvent.set(await getCalendarEvent(pathname[1]))
       } catch (e) {
-        history.pushState({}, "", "/")
+        history.pushState({}, '', '/')
       }
-    }
-    else {
-      history.pushState({}, "",  "/")
+    } else {
+      history.pushState({}, '', '/')
     }
   })
 </script>
@@ -43,7 +44,7 @@
   <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
     <div>
       <h1 class="text-2xl sm:text-3xl text-sky-500 dark:text-sky-400">
-        {`<thai-tech-calendar />`}
+        {import.meta.env.VITE_SITE_NAME}
       </h1>
       <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
     </div>

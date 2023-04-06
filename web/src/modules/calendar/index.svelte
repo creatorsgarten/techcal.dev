@@ -44,18 +44,8 @@
   let:items
 >
   {#if isMobile}
-    <Mobile
-      bind:calendarDays
-      bind:firstDayOfThisMonth
-      {items}
-      {today}
-    />
+    <Mobile bind:calendarDays bind:firstDayOfThisMonth {items} {today} />
   {:else}
-    <Desktop
-      bind:calendarDays
-      bind:firstDayOfThisMonth
-      {items}
-      {today}
-    />
+    <Desktop bind:calendarDays bind:firstDayOfThisMonth {items} {today} />
   {/if}
 </Renderer>

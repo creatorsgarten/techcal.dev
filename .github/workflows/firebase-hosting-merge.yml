@@ -30,7 +30,7 @@ jobs:
       - name: 'build'
         run: |
           cd web
-          pnpm build
+          pnpm build-ci
           cd ..
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
