@@ -80,7 +80,7 @@
                   <span class="flex py-2">
                     <a
                       class="flex items-center px-2 py-1 bg-gray-200 rounded-md text-gray-950"
-                      href="https://calendar.google.com/calendar/ical/tech.cal.th@gmail.com/public/basic.ics"
+                      href={`https://calendar.google.com/calendar/ical/${import.meta.env.VITE_CALENDAR_EMAIL}/public/basic.ics`}
                     >
                       <RSS class="w-4 h-4" />
                       {l('howToSub_step1button')}
