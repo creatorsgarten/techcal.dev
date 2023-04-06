@@ -25,7 +25,9 @@
       if (!initialLoad)
         initialLoad = true
       else if (initialLoad && expanded === false) {
-        item = null
+        setTimeout(() => {
+          item = null
+        }, 300)
         history.pushState({}, "", "/")
       }
     })
@@ -65,7 +67,7 @@
           leaveTo="opacity-0 scale-95"
         >
           <div
-            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all"
+            class="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all"
             use:dialog.modal
           >
             {#if item !== null}
