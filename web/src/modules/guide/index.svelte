@@ -47,7 +47,7 @@
             class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all"
             use:dialog.modal
           >
-            <article class="text-gray-700 dark:text-neutral-100">
+            <article class="text-gray-700 dark:text-neutral-100 text-sm space-y-2">
               <h4 class="font-medium text-lg text-gray-950 dark:text-white">
                 เพิ่ม Event ยังไง?
               </h4>
