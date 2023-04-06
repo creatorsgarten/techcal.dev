@@ -1,6 +1,7 @@
 <script lang="ts">
-  import dayjs from 'dayjs'
+  import { onMount } from 'svelte'
 
+  import dayjs from 'dayjs'
   import utc from 'dayjs/plugin/utc'
   import timezone from 'dayjs/plugin/timezone'
   import isBetween from 'dayjs/plugin/isBetween'
@@ -12,6 +13,10 @@
   dayjs.extend(utc)
   dayjs.extend(timezone)
   dayjs.extend(isBetween)
+
+  onMount(() => {
+    console.log(window.location)
+  })
 </script>
 
 <main class="h-full overflow-y-hidden sm:overflow-auto space-y-2">

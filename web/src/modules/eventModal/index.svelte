@@ -12,6 +12,7 @@
 
   const dialog = createDialog({ label: 'event' })
   let item: GoogleCalendarItem = null
+  let initialLoad = false
 
   onMount(() => {
     let dataListener = activeEvent.subscribe(o => {
@@ -21,7 +22,9 @@
       }
     })
     let dialogListener = dialog.subscribe(({ expanded }) => {
-      if (expanded === false) {
+      if (!initialLoad)
+        initialLoad = true
+      else if (initialLoad && expanded === false) {
         item = null
         history.pushState({}, "", "/")
       }
