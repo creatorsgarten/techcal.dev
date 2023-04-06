@@ -10,12 +10,27 @@
   import EventModal from '$modules/eventModal/index.svelte'
   import Guide from '$modules/guide/index.svelte'
 
+  import { getCalendarEvent } from '$functions/getCalendarEvent'
+  import { activeEvent } from '$context/activeEvent'
+
   dayjs.extend(utc)
   dayjs.extend(timezone)
   dayjs.extend(isBetween)
 
-  onMount(() => {
-    console.log(window.location)
+  onMount(async () => {
+    let pathname = window.location.pathname.split('/')
+    pathname.shift()
+
+    if (pathname[0] === 'event' && pathname.length === 2) {
+      try {
+        activeEvent.set(await getCalendarEvent(pathname[1]))
+      } catch (e) {
+        history.pushState({}, "", "/")
+      }
+    }
+    else {
+      history.pushState({}, "",  "/")
+    }
   })
 </script>
 
