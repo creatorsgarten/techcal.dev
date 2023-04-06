@@ -5,7 +5,7 @@ Repo for techcal.dev if you want your country's version just do PR and modify te
 ## Avaliable location
 
 - 🇹🇭 Thailand https://th.techcal.dev
-- 🇮🇩 Indonedia https://id.techcal.dev
+- 🇮🇩 Indonesia https://id.techcal.dev
 
 ## How to create your own location page
 
