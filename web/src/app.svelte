@@ -7,8 +7,8 @@
   import isBetween from 'dayjs/plugin/isBetween'
 
   import Calendar from '$modules/calendar/index.svelte'
-  import EventModal from '$modules/eventModal/index.svelte'
-  import Guide from '$modules/guide/index.svelte'
+  let guideComponent: Promise<typeof import('$modules/guide/index.svelte')>
+  let eventModalComponent: Promise<typeof import('$modules/eventModal/index.svelte')>
 
   import { getCalendarEvent } from '$functions/getCalendarEvent'
   import { activeEvent } from '$context/activeEvent'
@@ -16,6 +16,11 @@
   dayjs.extend(utc)
   dayjs.extend(timezone)
   dayjs.extend(isBetween)
+
+  onMount(() => {
+    guideComponent = import('$modules/guide/index.svelte')
+    eventModalComponent = import('$modules/eventModal/index.svelte')
+  })
 
   onMount(async () => {
     let pathname = window.location.pathname.split('/')
@@ -43,11 +48,19 @@
       <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
     </div>
     <div class="flex items-center ml-2">
-      <Guide />
+      {#if eventModalComponent}
+        {#await guideComponent then { default: Guide }}
+          <Guide />
+        {/await}
+      {/if}
     </div>
   </div>
 
   <Calendar />
 </main>
 
-<EventModal />
+{#if eventModalComponent}
+  {#await eventModalComponent then { default: EventModal }}
+    <EventModal />
+  {/await}
+{/if}
