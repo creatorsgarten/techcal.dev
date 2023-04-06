@@ -3,7 +3,7 @@
   import Time from '../icons/time.svelte'
 
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
-  import TimeStringify from './timeStringify.svelte'
+  import TimeStringify from '../event/timeStringify.svelte'
 
   // prettier-ignore
   export let item: GoogleCalendarItem;

@@ -1,15 +1,37 @@
 <script lang="ts">
-  import Transition from 'svelte-transition'
+  import { onMount } from "svelte"
 
+  import Transition from 'svelte-transition'  
+  import Meta from './meta.svelte'
+  
+  import { createDialog } from 'svelte-headlessui'
+  import { activeEvent } from "$context/activeEvent"
   import { linkify } from '$functions/linkify'
 
-  import type { createDialog } from 'svelte-headlessui'
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
-  import Meta from './meta.svelte'
 
-  export let dialog: ReturnType<typeof createDialog>
-  // prettier-ignore
-  export let item: GoogleCalendarItem;
+  const dialog = createDialog({ label: 'event' })
+  let item: GoogleCalendarItem = null
+
+  onMount(() => {
+    let dataListener = activeEvent.subscribe(o => {
+      if (o !== null) {
+        item = o
+        dialog.open()
+      }
+    })
+    let dialogListener = dialog.subscribe(({ expanded }) => {
+      if (expanded === false) {
+        item = null
+        history.pushState({}, "", "/")
+      }
+    })
+
+    return () => {
+      dataListener()
+      dialogListener()
+    }
+  })
 </script>
 
 <div class="relative z-10">
@@ -43,18 +65,20 @@
             class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 p-6 text-left align-middle shadow-xl transition-all"
             use:dialog.modal
           >
-            <Meta {item} />
+            {#if item !== null}
+              <Meta {item} />
 
-            <article
-              class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
-            >
-              <p class="pb-2">
-                <a href={item.htmlLink} target="_blank" rel="noreferrer"
-                  >Google Calendar</a
-                >
-              </p>
-              {@html linkify(item.description ?? '')}
-            </article>
+              <article
+                class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
+              >
+                <p class="pb-2">
+                  <a href={item.htmlLink} target="_blank" rel="noreferrer"
+                    >Google Calendar</a
+                  >
+                </p>
+                {@html linkify(item.description ?? '')}
+              </article>
+            {/if}
 
             <div class="mt-4 flex justify-end">
               <button

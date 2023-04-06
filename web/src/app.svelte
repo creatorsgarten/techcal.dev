@@ -6,6 +6,7 @@
   import isBetween from 'dayjs/plugin/isBetween'
 
   import Calendar from '$modules/calendar/index.svelte'
+  import EventModal from '$modules/eventModal/index.svelte'
   import Guide from '$modules/guide/index.svelte'
 
   dayjs.extend(utc)
@@ -28,3 +29,5 @@
 
   <Calendar />
 </main>
+
+<EventModal />
