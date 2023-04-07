@@ -1,6 +1,6 @@
-import type { LocaleKey } from '../@types/LocaleKey'
+import type { LocaleKey } from '../../@types/LocaleKey'
 
-export const id: Record<LocaleKey, string> = {
+export default {
   howToAdd: 'Cara menambahkan acara?',
   howToAdd_step1:
     'Buatlah acara di kalendermu, misal Google Calendar, Outlook, atau MacOs Calendar',
@@ -14,4 +14,4 @@ export const id: Record<LocaleKey, string> = {
   howToSub_step1button: 'dapatkan file ical',
   howToSub_step2:
     'Tetapkan notifikasi untuk techcal.dev sesuai dengan Platform Anda',
-}
+} as Record<LocaleKey, string>

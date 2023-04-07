@@ -1,13 +1,8 @@
-import { id } from './lang/id'
-import { th } from './lang/th'
+import selectedLang from '$selectedLang'
 
-import type { LocaleKey } from './@types/LocaleKey'
-
-const locales = {
-  th,
-  id,
-}
+import type { LocaleKey } from '../@types/LocaleKey'
 
 export const l = (key: LocaleKey) => {
-  return locales[import.meta.env.VITE_LOCALE][key]
+  console.log({ selectedLang })
+  return selectedLang[key]
 }
