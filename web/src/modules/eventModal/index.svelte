@@ -73,7 +73,7 @@
               <Meta {item} />
 
               <article
-                class="mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
+                class="max-h-72 overflow-auto mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
               >
                 <p class="pb-2">
                   <a href={item.htmlLink} target="_blank" rel="noreferrer"
