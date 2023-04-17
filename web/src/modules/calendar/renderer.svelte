@@ -13,13 +13,19 @@
   export let filterStart: Dayjs
   export let filterEnd: Dayjs
 
+  let loading = true
+
   let items: GoogleCalendarItem[] = []
   $: {
+    loading = true
     getCalendarEvents(filterStart, filterEnd)
       .then(o => {
         items = o
       })
       .catch(e => {})
+      .finally(() => {
+        loading = false
+      })
   }
 </script>
 
@@ -31,7 +37,10 @@
       <span class="font-bold">{firstDayOfThisMonth.format('MMMM')}</span>
       <span class="font-light">{firstDayOfThisMonth.format('YYYY')}</span>
     </h1>
-    <div class="flex space-x-2 sm:space-x-4">
+    <div class="flex space-x-2 sm:space-x-4 items-center">
+      {#if loading}
+        <div class="w-16 sm:w-24 h-1.5 bg-gray-500 animate-pulse animation-short rounded-full" />
+      {/if}
       <button
         id="month-prev"
         on:click={onShift(-1)}
@@ -53,3 +62,9 @@
 
   <slot {items} />
 </div>
+
+<style>
+  .animation-short {
+    animation-duration: 1s;
+  }
+</style>
