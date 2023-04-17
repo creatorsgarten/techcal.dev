@@ -17,7 +17,7 @@
     "puppeteer": "19.8.5"
   },
   "devDependencies": {
-    "firebase-functions-test": "3.0.0"
+    "firebase-functions-test": "3.1.0"
   },
   "private": true
 }
