@@ -23,7 +23,7 @@
     "svelte-check": "^3.2.0",
     "tailwindcss": "^3.3.1",
     "tslib": "^2.5.0",
-    "typescript": "^5.0.3",
+    "typescript": "^4.9.3",
     "vite": "^4.2.1",
     "vite-plugin-pwa": "^0.14.7",
     "zx": "^7.2.1"
