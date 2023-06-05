@@ -14,7 +14,7 @@
   "dependencies": {
     "firebase-admin": "11.6.0",
     "firebase-functions": "4.4.0",
-    "puppeteer": "19.10.1"
+    "puppeteer": "19.11.1"
   },
   "devDependencies": {
     "firebase-functions-test": "3.1.0"
