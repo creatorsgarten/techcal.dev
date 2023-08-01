@@ -6,7 +6,7 @@ export const getCalendarEvents = async (begin: Dayjs, end: Dayjs) => {
     `https://www.googleapis.com/calendar/v3/calendars/${
       import.meta.env.VITE_CALENDAR_EMAIL
     }/events?${new URLSearchParams({
-      key: 'AIzaSyBpmxgK9dbso4pEYWvg47SOoIqIBB83Pno',
+      key: 'AIzaSyDm3FYN4D0iFzGneTiXIQiegaKcnIRUeLo',
       timeMin: begin.toISOString(),
       timeMax: end.endOf('day').toISOString(),
       singleEvents: 'true',

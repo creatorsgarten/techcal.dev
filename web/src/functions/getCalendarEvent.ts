@@ -5,7 +5,7 @@ export const getCalendarEvent = async (id: string) => {
     `https://www.googleapis.com/calendar/v3/calendars/${
       import.meta.env.VITE_CALENDAR_EMAIL
     }/events/${id}?${new URLSearchParams({
-      key: 'AIzaSyBpmxgK9dbso4pEYWvg47SOoIqIBB83Pno',
+      key: 'AIzaSyDm3FYN4D0iFzGneTiXIQiegaKcnIRUeLo',
     }).toString()}`
   ).then(o => {
     if (o.ok) return o.json()
