@@ -3,6 +3,7 @@
 
   import type { Dayjs } from 'dayjs'
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
+  import { captureMode } from '$context/captureMode'
 
   export let date: Dayjs
   export let firstDayOfThisMonth: Dayjs
@@ -30,7 +31,7 @@
       <span class="font-semibold py-0.5">{date.format('MMMM')}</span>
     {/if}
     <span
-      class={diffFromToday === 0
+      class={diffFromToday === 0 && !$captureMode
         ? 'bg-orange-600 text-white px-2 rounded-md py-0.5'
         : 'py-0.5'}>{date.date()}</span
     >

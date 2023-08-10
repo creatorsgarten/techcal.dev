@@ -6,10 +6,16 @@
   import Mobile from './mobile/index.svelte'
   import Renderer from './renderer.svelte'
 
-  let firstDayOfThisMonth = dayjs()
-    .tz('Asia/Bangkok')
-    .set('date', 1)
-    .startOf('day')
+  const initialMonth = (() => {
+    const params = new URLSearchParams(window.location.search)
+    const month = params.get('month')
+    if (month?.match(/^\d{4}-\d{2}$/)) {
+      return dayjs(month + '-01').tz('Asia/Bangkok')
+    }
+  })()
+
+  let firstDayOfThisMonth =
+    initialMonth || dayjs().tz('Asia/Bangkok').set('date', 1).startOf('day')
 
   let onShift = (amount: number) => () => {
     firstDayOfThisMonth = firstDayOfThisMonth.add(amount, 'month')

@@ -29,6 +29,7 @@
     "zx": "^7.2.1"
   },
   "dependencies": {
+    "@fontsource/anuphan": "^5.0.8",
     "autolinker": "^4.0.0",
     "dayjs": "^1.11.7",
     "svelte-headlessui": "^0.0.15",

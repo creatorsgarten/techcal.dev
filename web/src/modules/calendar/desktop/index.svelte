@@ -5,6 +5,7 @@
 
   import type { Dayjs } from 'dayjs'
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
+  import { captureMode } from '$context/captureMode'
 
   export let calendarDays: Dayjs[]
   export let firstDayOfThisMonth: Dayjs
@@ -40,13 +41,17 @@
   </div>
 </section>
 
-<footer class="pt-10 pb-8 text-xs text-center">
-  <p>
-    Originally made by <a href="https://twitter.com/thangman22">@thangman22</a>
-    · Redesigned by <a href="https://facebook.com/rayriffy">@rayriffy</a>
-  </p>
-  <p>
-    Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a> · Fork
-    me on <a href="https://github.com/creatorsgarten/techcal.dev">GitHub</a>
-  </p>
-</footer>
+{#if !$captureMode}
+  <footer class="pt-10 pb-8 text-xs text-center">
+    <p>
+      Originally made by <a href="https://twitter.com/thangman22">@thangman22</a
+      >
+      · Redesigned by <a href="https://facebook.com/rayriffy">@rayriffy</a>
+    </p>
+    <p>
+      Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a> ·
+      Fork me on
+      <a href="https://github.com/creatorsgarten/techcal.dev">GitHub</a>
+    </p>
+  </footer>
+{/if}
