@@ -13,6 +13,9 @@ importers:
       '@fontsource/anuphan':
         specifier: ^5.0.8
         version: 5.0.8
+      '@fontsource/inter':
+        specifier: ^5.0.8
+        version: 5.0.8
       autolinker:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1424,6 +1427,10 @@ packages:
 
   /@fontsource/anuphan@5.0.8:
     resolution: {integrity: sha512-z+c11UA1QLv+msxhNnU9xRZQsLwsxN46LqH7jKJsszvifbTcMSqHLK+hxrlNNIj8L6mrEM7p59cQ/r3krUFt4Q==}
+    dev: false
+
+  /@fontsource/inter@5.0.8:
+    resolution: {integrity: sha512-28knWH1BfOiRalfLs90U4sge5mpQ8ZH6FS0PTT+IZMKrZ7wNHDHRuKa1kQJg+uHcc6axBppnxll+HXM4c7zo/Q==}
     dev: false
 
   /@jridgewell/gen-mapping@0.1.1:
