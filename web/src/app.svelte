@@ -14,6 +14,9 @@
 
   import { getCalendarEvent } from '$functions/getCalendarEvent'
   import { activeEvent } from '$context/activeEvent'
+  import { captureEvent } from '$context/captureEvent'
+  import { captureMode } from '$context/captureMode'
+  import EventBanner from '$modules/eventBanner/eventBanner.svelte'
 
   dayjs.extend(utc)
   dayjs.extend(timezone)
@@ -25,10 +28,17 @@
   })
 
   onMount(async () => {
+    const params = new URLSearchParams(window.location.search)
+
     let pathname = window.location.pathname.split('/')
     pathname.shift()
 
-    if (pathname[0] === 'event' && pathname.length === 2) {
+    if (params.get('capture')) {
+      captureMode.set(true)
+      document.body.style.fontFamily = `Anuphan, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
+      const capture = params.get('capture')
+      captureEvent.set(await getCalendarEvent(capture))
+    } else if (pathname[0] === 'event' && pathname.length === 2) {
       try {
         activeEvent.set(await getCalendarEvent(pathname[1]))
       } catch (e) {
@@ -41,23 +51,37 @@
 </script>
 
 <main class="h-full overflow-y-hidden sm:overflow-auto space-y-2">
-  <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
-    <div>
-      <h1 class="text-2xl sm:text-3xl text-sky-500 dark:text-sky-400">
-        {import.meta.env.VITE_SITE_NAME}
-      </h1>
-      <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
+  {#if !$captureMode}
+    <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
+      <div>
+        <h1 class="text-2xl sm:text-3xl text-sky-500 dark:text-sky-400">
+          {import.meta.env.VITE_SITE_NAME}
+        </h1>
+        <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
+      </div>
+      <div class="flex items-center ml-2">
+        {#if guideComponent}
+          {#await guideComponent then { default: Guide }}
+            <Guide />
+          {/await}
+        {/if}
+      </div>
     </div>
-    <div class="flex items-center ml-2">
-      {#if guideComponent}
-        {#await guideComponent then { default: Guide }}
-          <Guide />
-        {/await}
-      {/if}
+    <Calendar />
+  {:else}
+    <div class="border-b border-gray-200">
+      <div id="capture-stage" class="flex flex-col">
+        <div class="bg-black text-white p-8 px-12">
+          {#if $captureEvent}
+            <EventBanner item={$captureEvent} />
+          {/if}
+        </div>
+        <div class="flex-none pb-12 pt-8">
+          <Calendar />
+        </div>
+      </div>
     </div>
-  </div>
-
-  <Calendar />
+  {/if}
 </main>
 
 {#if eventModalComponent}

@@ -10,6 +10,9 @@ importers:
 
   web:
     dependencies:
+      '@fontsource/anuphan':
+        specifier: ^5.0.8
+        version: 5.0.8
       autolinker:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1418,6 +1421,10 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
+
+  /@fontsource/anuphan@5.0.8:
+    resolution: {integrity: sha512-z+c11UA1QLv+msxhNnU9xRZQsLwsxN46LqH7jKJsszvifbTcMSqHLK+hxrlNNIj8L6mrEM7p59cQ/r3krUFt4Q==}
+    dev: false
 
   /@jridgewell/gen-mapping@0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
