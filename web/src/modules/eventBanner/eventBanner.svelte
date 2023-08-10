@@ -15,7 +15,9 @@
           >Tech event</strong
         >
       </div>
-      <h1 class="text-5xl font-bold mb-4 truncate">{item.summary}</h1>
+      <h1 id="capture-title" class="text-5xl font-bold mb-4 truncate">
+        {item.summary}
+      </h1>
       {#if item.location}
         <div class="flex pt-2 items-center space-x-3">
           <Buildings class="w-4 h-4 shrink-0" />
