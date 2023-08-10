@@ -80,7 +80,9 @@
                     >Google Calendar</a
                   >
                 </p>
-                {@html linkify(item.description ?? '')}
+                <div class="whitespace-pre-line">
+                  {@html linkify(item.description ?? '')}
+                </div>
               </article>
             {/if}
 

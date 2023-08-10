@@ -29,6 +29,7 @@
     "zx": "^7.2.1"
   },
   "dependencies": {
+    "autolinker": "^4.0.0",
     "dayjs": "^1.11.7",
     "svelte-headlessui": "^0.0.15",
     "svelte-media-queries": "^1.5.4",

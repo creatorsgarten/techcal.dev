@@ -49,7 +49,7 @@
       <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
     </div>
     <div class="flex items-center ml-2">
-      {#if eventModalComponent}
+      {#if guideComponent}
         {#await guideComponent then { default: Guide }}
           <Guide />
         {/await}
