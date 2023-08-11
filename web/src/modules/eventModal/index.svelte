@@ -70,16 +70,29 @@
             use:dialog.modal
           >
             {#if item !== null}
+              <button
+                type="button"
+                aria-label="Close"
+                class="float-right inline-flex justify-center rounded-md border border-transparent text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 opacity-50"
+                on:click={dialog.close}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 256 256"
+                  ><path
+                    fill="currentColor"
+                    d="M205.66 194.34a8 8 0 0 1-11.32 11.32L128 139.31l-66.34 66.35a8 8 0 0 1-11.32-11.32L116.69 128L50.34 61.66a8 8 0 0 1 11.32-11.32L128 116.69l66.34-66.35a8 8 0 0 1 11.32 11.32L139.31 128Z"
+                  /></svg
+                >
+              </button>
+
               <Meta {item} />
 
               <article
-                class="max-h-72 overflow-auto mt-2 text-gray-600 dark:text-neutral-100 text-sm break-all"
+                class="overflow-auto mt-2 text-gray-600 dark:text-neutral-100 text-sm break-words"
               >
-                <p class="pb-2">
-                  <a href={item.htmlLink} target="_blank" rel="noreferrer"
-                    >Google Calendar</a
-                  >
-                </p>
                 <div class="whitespace-pre-line">
                   {@html linkify(item.description ?? '')}
                 </div>

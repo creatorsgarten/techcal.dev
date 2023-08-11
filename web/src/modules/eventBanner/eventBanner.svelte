@@ -17,7 +17,7 @@
       </div>
       <h1
         id="capture-title"
-        class="text-5xl font-bold mb-4 [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden leading-tight"
+        class="text-5xl font-bold mb-4 [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden leading-tight bg-clip-text bg-gradient-to-r from-sky-300 to-pink-300 text-transparent"
       >
         {item.summary}
       </h1>
