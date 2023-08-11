@@ -15,7 +15,10 @@
           >Tech event</strong
         >
       </div>
-      <h1 id="capture-title" class="text-5xl font-bold mb-4 truncate">
+      <h1
+        id="capture-title"
+        class="text-5xl font-bold mb-4 [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical] overflow-hidden leading-tight"
+      >
         {item.summary}
       </h1>
       {#if item.location}
