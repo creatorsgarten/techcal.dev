@@ -3,6 +3,7 @@
   import { captureEvent } from '$context/captureEvent'
 
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
+  import IconBar from './iconBar.svelte'
 
   export let item: GoogleCalendarItem
   export let dayDiff: number
@@ -36,7 +37,7 @@
     aria-label={item.summary}
     class={`eventItem flex w-full rounded-md px-1.5 sm:px-1 py-0.5 sm:py-0  border-l-4 ${color} ${opacity}`}
     ><span class="line-clamp-3 sm:line-clamp-1 text-sm text-left w-full"
-      >{item.summary}</span
+      ><IconBar {item} /> {item.summary}</span
     ></a
   >
 </div>

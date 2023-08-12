@@ -9,6 +9,7 @@
   import { linkify } from '$functions/linkify'
 
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
+  import { extractMagicHashtags, magicHashtags } from '$modules/magicHashtags'
 
   const dialog = createDialog({ label: 'event' })
   let item: GoogleCalendarItem = null
@@ -36,6 +37,9 @@
       dialogListener()
     }
   })
+
+  $: parsedResult = extractMagicHashtags(item?.description || '')
+  $: description = parsedResult.text
 </script>
 
 <div class="relative z-10">
@@ -94,8 +98,22 @@
                 class="overflow-auto mt-2 text-gray-600 dark:text-neutral-100 text-sm break-words"
               >
                 <div class="whitespace-pre-line">
-                  {@html linkify(item.description ?? '')}
+                  {@html linkify(description)}
                 </div>
+                {#if parsedResult.matchedHashtags.length}
+                  <div class="flex gap-2 mt-4 flex-wrap">
+                    {#each parsedResult.matchedHashtags as hashtag}
+                      <div
+                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100"
+                      >
+                        <span>
+                          <strong class="font-medium">#{hashtag}</strong>
+                          {' - '}{magicHashtags[hashtag].description}</span
+                        >
+                      </div>
+                    {/each}
+                  </div>
+                {/if}
               </article>
             {/if}
 
