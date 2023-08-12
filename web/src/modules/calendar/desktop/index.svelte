@@ -6,6 +6,7 @@
   import type { Dayjs } from 'dayjs'
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
   import { captureMode } from '$context/captureMode'
+  import IconifyIcon from '$modules/icons/iconifyIcon.svelte'
 
   export let calendarDays: Dayjs[]
   export let firstDayOfThisMonth: Dayjs
@@ -43,15 +44,19 @@
 
 {#if !$captureMode}
   <footer class="pt-10 pb-8 text-xs text-center">
-    <p>
+    <p class="text-neutral-500 dark:text-neutral-400">
       Originally made by <a href="https://twitter.com/thangman22">@thangman22</a
       >
       · Redesigned by <a href="https://facebook.com/rayriffy">@rayriffy</a>
+      · Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a>
     </p>
-    <p>
-      Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a> ·
-      Fork me on
-      <a href="https://github.com/creatorsgarten/techcal.dev">GitHub</a>
+    <p class="mt-3 text-2xl flex flex-wrap gap-3 justify-center">
+      <a href="https://github.com/creatorsgarten/techcal.dev">
+        <IconifyIcon icon="mdi:github" />
+      </a>
+      <a href="https://www.facebook.com/th.techcal.dev">
+        <IconifyIcon icon="mdi:facebook" />
+      </a>
     </p>
   </footer>
 {/if}

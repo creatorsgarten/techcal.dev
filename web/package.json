@@ -33,6 +33,7 @@
     "@fontsource/inter": "^5.0.8",
     "autolinker": "^4.0.0",
     "dayjs": "^1.11.7",
+    "iconify-icon": "^1.0.8",
     "svelte-headlessui": "^0.0.15",
     "svelte-media-queries": "^1.5.4",
     "svelte-transition": "^0.0.7",

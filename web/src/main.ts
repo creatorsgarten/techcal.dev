@@ -1,3 +1,4 @@
+import 'iconify-icon'
 import App from './app.svelte'
 import '@fontsource/anuphan/400.css'
 import '@fontsource/anuphan/700.css'
