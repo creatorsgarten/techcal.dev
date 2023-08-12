@@ -11,8 +11,7 @@
   <div class="text-xl flex flex-col justify-center">
     <div>
       <div class="mb-2">
-        <strong
-          class="bg-sky-400 text-black text-white px-2 py-1 text-sm rounded"
+        <strong class="bg-sky-400 text-black px-2 py-1 text-sm rounded"
           >Tech event</strong
         >
       </div>
