@@ -50,12 +50,28 @@
       · Redesigned by <a href="https://facebook.com/rayriffy">@rayriffy</a>
       · Maintained by <a href="https://creatorsgarten.org">Creatorsgarten</a>
     </p>
-    <p class="mt-3 text-2xl flex flex-wrap gap-3 justify-center">
-      <a href="https://github.com/creatorsgarten/techcal.dev">
-        <IconifyIcon icon="mdi:github" />
+    <p class="mt-3 text-3xl flex flex-wrap gap-3 justify-center">
+      <a
+        href="https://calendar.google.com/calendar/u/0/r?cid=tech.cal.th@gmail.com"
+        target="_blank"
+        title="Add to Google Calendar"
+      >
+        <IconifyIcon icon="logos:google-calendar" />
       </a>
-      <a href="https://www.facebook.com/th.techcal.dev">
-        <IconifyIcon icon="mdi:facebook" />
+      <a
+        href="https://www.facebook.com/th.techcal.dev"
+        target="_blank"
+        title="Facebook page"
+      >
+        <IconifyIcon icon="logos:facebook" />
+      </a>
+      <a
+        href="https://github.com/creatorsgarten/techcal.dev"
+        target="_blank"
+        title="Source code on GitHub"
+        class="text-[#161614] dark:text-[#f0f0f0]"
+      >
+        <IconifyIcon icon="bi:github" />
       </a>
     </p>
   </footer>
