@@ -25,7 +25,7 @@
     "tslib": "^2.5.0",
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
-    "vite-plugin-pwa": "^0.14.7",
+    "vite-plugin-pwa": "^0.16.0",
     "vitest": "^0.34.1",
     "zx": "^7.2.1"
   },
