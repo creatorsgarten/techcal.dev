@@ -57,8 +57,8 @@ export function replaceholder(source: string, pattern: RegExp) {
     unreplace: (replaced: string) => {
       return replaced.replace(
         /\[__PLACEHOLDER_(\d+)__\]/g,
-        (_, placeholder) => {
-          return map.get(placeholder) || ''
+        (_) => {
+          return map.get(_) || _
         }
       )
     },
