@@ -174,4 +174,7 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# ignore pnpm cache directory
+.pnpm-store
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
