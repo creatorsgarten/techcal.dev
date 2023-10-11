@@ -27,6 +27,22 @@
         loading = false
       })
   }
+
+  // เมื่อกดปุ่ม สามารถไป next-prev ได้
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowLeft') {
+    document.getElementById('month-prev').click();
+  }
+  if (event.key === 'ArrowRight') {
+    document.getElementById('month-next').click();
+  }
+  if (event.key === 'ArrowUp') {
+    document.getElementById('month-next').click();
+  }
+  if (event.key === 'ArrowDown') {
+    document.getElementById('month-prev').click();
+  }
+});
 </script>
 
 <div
