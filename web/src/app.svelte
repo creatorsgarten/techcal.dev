@@ -54,7 +54,7 @@
   {#if !$captureMode}
     <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
       <div>
-          <img src="Logo_glitch.svg" alt="Logo" width="30%">
+          <img src="Logo_glitch.svg" alt="Logo" width="40%">
         <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
       </div>
       <div class="flex items-center ml-2">
