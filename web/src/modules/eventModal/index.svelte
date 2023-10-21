@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import { createEvent } from 'ics'
+  import dayjs from 'dayjs'
 
   import Transition from 'svelte-transition'
   import Meta from './meta.svelte'
@@ -8,7 +10,7 @@
   import { activeEvent } from '$context/activeEvent'
   import { linkify } from '$functions/linkify'
 
-  import type { GoogleCalendarItem } from '$types/GoogleCalendar'
+  import type { GoogleCalendarItem, FullDay, DayWithTime } from '$types/GoogleCalendar'
   import { extractMagicHashtags, magicHashtags } from '$modules/magicHashtags'
 
   const dialog = createDialog({ label: 'event' })
@@ -37,6 +39,55 @@
       dialogListener()
     }
   })
+
+  const itemTimeToTs = (calendarTime: FullDay | DayWithTime): Number[] => {
+    const tsDayJs = dayjs(
+      (calendarTime as FullDay).date ?? (calendarTime as DayWithTime).dateTime,
+      (calendarTime as DayWithTime).timeZone
+    ).tz('Asia/Bangkok');
+    
+    return (calendarTime as FullDay) ? 
+        [tsDayJs.year(), tsDayJs.month(), tsDayJs.date(), 0, 0] :
+        [tsDayJs.year(), tsDayJs.month(), tsDayJs.date(), tsDayJs.hour(), tsDayJs.minute()];
+  }
+  
+  const exportToICS = async () => {
+    const event = {
+      start: itemTimeToTs(item.start),
+      end: itemTimeToTs(item.end),
+      startInputType: 'local',
+      endInputType: 'local',
+      title: item.summary,
+      description: item.description,
+      location: item.location,
+      url: item.htmlLink,
+      uid: item.iCalUID,
+      categories: [ item.eventType ],
+      status: item.status,
+      organizer: { email: item.organizer.email },
+      calName: 'TechCal.Dev'
+    }
+
+    const filename = 'TechCal.dev.ics'
+    const file = await new Promise((resolve, reject) => {
+      createEvent(event, (error, value) => {
+        if (error) {
+          reject(error)
+        }
+
+        resolve(new File([value], filename, { type: 'text/calendar' }))
+      })
+    }) as File;
+    const url = URL.createObjectURL(file);
+    const anchor = document.createElement('a');
+
+    anchor.href = URL.createObjectURL(file);
+    anchor.download = 'TechCal.dev.ics';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(url);
+  }
 
   $: parsedResult = extractMagicHashtags(item?.description || '')
   $: description = parsedResult.text
@@ -118,6 +169,16 @@
             {/if}
 
             <div class="mt-4 flex justify-end">
+              {#if item !== null}
+                <button
+                  type="button"
+                  aria-label="Export"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 mx-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  on:click={exportToICS}
+                >
+                  Export
+                </button>
+              {/if}
               <button
                 type="button"
                 aria-label="Close"
