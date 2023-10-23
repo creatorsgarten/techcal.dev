@@ -36,7 +36,7 @@
     "dayjs": "^1.11.7",
     "iconify-icon": "^1.0.8",
     "ics": "^3.5.0",
-    "svelte-headlessui": "^0.0.15",
+    "svelte-headlessui": "^0.0.32",
     "svelte-media-queries": "^1.5.4",
     "svelte-transition": "^0.0.7",
     "vite-tsconfig-paths": "^4.0.8"
