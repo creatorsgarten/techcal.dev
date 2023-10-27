@@ -64,7 +64,7 @@
           >
             <div
               class={`w-1 h-4 rounded-full ${
-                active ? 'bg-purple-500' : 'bg-transparent'
+                active ? 'bg-blue-950 dark:bg-blue-400' : 'bg-transparent'
               }`}
             />
             <svelte:component this={language.icon} class="w-5 h-5" {active} />

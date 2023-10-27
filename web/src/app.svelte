@@ -56,7 +56,6 @@
   {#if !$captureMode}
     <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
       <div>
-        <p>{import.meta.env.VITE_SITE_NAME}</p>
         <img
           src={import.meta.env.VITE_SITE_NAME === 'thai-tech-calendar'
             ? 'Logo_th.svg'

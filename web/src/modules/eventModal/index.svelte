@@ -11,11 +11,16 @@
   import { linkify } from '$functions/linkify'
   import { l } from '$locale'
 
-  import type { GoogleCalendarItem, FullDay, DayWithTime } from '$types/GoogleCalendar'
+  import type { DateArray, EventAttributes, EventStatus } from 'ics'
+  import type {
+    GoogleCalendarItem,
+    FullDay,
+    DayWithTime,
+  } from '$types/GoogleCalendar'
   import { extractMagicHashtags, magicHashtags } from '$modules/magicHashtags'
 
   const dialog = createDialog({ label: 'event' })
-  let item: GoogleCalendarItem = null
+  let item: GoogleCalendarItem | null = null
   let initialLoad = false
 
   onMount(() => {
@@ -27,12 +32,7 @@
     })
     let dialogListener = dialog.subscribe(({ expanded }) => {
       if (!initialLoad) initialLoad = true
-      else if (initialLoad && expanded === false) {
-        setTimeout(() => {
-          item = null
-        }, 300)
-        history.pushState({}, '', '/')
-      }
+      else if (initialLoad && expanded === false) history.pushState({}, '', '/')
     })
 
     return () => {
@@ -41,36 +41,42 @@
     }
   })
 
-  const itemTimeToTs = (calendarTime: FullDay | DayWithTime): Number[] => {
+  const itemTimeToTs = (calendarTime: FullDay | DayWithTime): DateArray => {
     const tsDayJs = dayjs(
       (calendarTime as FullDay).date ?? (calendarTime as DayWithTime).dateTime,
       (calendarTime as DayWithTime).timeZone
-    ).tz('Asia/Bangkok');
-    
-    return (calendarTime as FullDay) ? 
-        [tsDayJs.year(), tsDayJs.month(), tsDayJs.date(), 0, 0] :
-        [tsDayJs.year(), tsDayJs.month(), tsDayJs.date(), tsDayJs.hour(), tsDayJs.minute()];
+    ).tz('Asia/Bangkok')
+
+    return (calendarTime as FullDay)
+      ? [tsDayJs.year(), tsDayJs.month(), tsDayJs.date(), 0, 0]
+      : [
+          tsDayJs.year(),
+          tsDayJs.month(),
+          tsDayJs.date(),
+          tsDayJs.hour(),
+          tsDayJs.minute(),
+        ]
   }
-  
+
   const exportToICS = async () => {
-    const event = {
-      start: itemTimeToTs(item.start),
-      end: itemTimeToTs(item.end),
+    const event: EventAttributes = {
+      start: itemTimeToTs(item!.start),
+      end: itemTimeToTs(item!.end),
       startInputType: 'local',
       endInputType: 'local',
-      title: item.summary,
-      description: item.description,
-      location: item.location,
-      url: item.htmlLink,
-      uid: item.iCalUID,
-      categories: [ item.eventType ],
-      status: item.status,
-      organizer: { email: item.organizer.email },
-      calName: 'TechCal.Dev'
+      title: item!.summary,
+      description: item!.description,
+      location: item!.location,
+      url: item!.htmlLink,
+      uid: item!.iCalUID,
+      categories: [item!.eventType],
+      status: item!.status as EventStatus,
+      organizer: { email: item!.organizer.email },
+      calName: 'TechCal.Dev',
     }
 
     const filename = 'TechCal.dev.ics'
-    const file = await new Promise((resolve, reject) => {
+    const file = (await new Promise((resolve, reject) => {
       createEvent(event, (error, value) => {
         if (error) {
           reject(error)
@@ -78,16 +84,16 @@
 
         resolve(new File([value], filename, { type: 'text/calendar' }))
       })
-    }) as File;
-    const url = URL.createObjectURL(file);
-    const anchor = document.createElement('a');
+    })) as File
+    const url = URL.createObjectURL(file)
+    const anchor = document.createElement('a')
 
-    anchor.href = URL.createObjectURL(file);
-    anchor.download = 'TechCal.dev.ics';
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    URL.revokeObjectURL(url);
+    anchor.href = URL.createObjectURL(file)
+    anchor.download = 'TechCal.dev.ics'
+    document.body.appendChild(anchor)
+    anchor.click()
+    document.body.removeChild(anchor)
+    URL.revokeObjectURL(url)
   }
 
   $: parsedResult = extractMagicHashtags(item?.description || '')
