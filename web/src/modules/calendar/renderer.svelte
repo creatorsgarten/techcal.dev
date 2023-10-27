@@ -39,7 +39,9 @@
     </h1>
     <div class="flex space-x-2 sm:space-x-4 items-center">
       {#if loading}
-        <div class="w-16 sm:w-24 h-1.5 bg-gray-500 animate-pulse animation-short rounded-full" />
+        <div
+          class="w-16 sm:w-24 h-1.5 bg-gray-500 animate-pulse animation-short rounded-full"
+        />
       {/if}
       <button
         id="month-prev"

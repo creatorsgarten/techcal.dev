@@ -9,7 +9,7 @@
     "build-ci": "zx script/build-all.mjs",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format": "prettier --write --plugin-search-dir=. ."
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,svelte}\""
   },
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.1",
@@ -17,8 +17,9 @@
     "@tsconfig/svelte": "^5.0.2",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
-    "prettier": "^2.8.7",
-    "prettier-plugin-svelte": "^2.10.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "rollup-plugin-visualizer": "^5.9.2",
     "svelte": "^4.2.2",
     "svelte-check": "^3.5.2",
