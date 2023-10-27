@@ -9,6 +9,7 @@
   import { createDialog } from 'svelte-headlessui'
   import { activeEvent } from '$context/activeEvent'
   import { linkify } from '$functions/linkify'
+  import { l } from '$locale'
 
   import type { GoogleCalendarItem, FullDay, DayWithTime } from '$types/GoogleCalendar'
   import { extractMagicHashtags, magicHashtags } from '$modules/magicHashtags'
@@ -176,7 +177,7 @@
                   class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 mx-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   on:click={exportToICS}
                 >
-                  Export
+                  {$l('export')}
                 </button>
               {/if}
               <button
@@ -185,7 +186,7 @@
                 class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 on:click={dialog.close}
               >
-                Close
+                {$l('close')}
               </button>
             </div>
           </div>

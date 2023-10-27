@@ -1,0 +1,13 @@
+{
+  "howToAdd": "How to add an event?",
+  "howToAdd_step1": "Create an event in your any calendar (i.e. Google Calendar, Outlook, iCloud Calendar)",
+  "howToAdd_step2": "Send invitation to",
+  "howToAdd_step3": "Done!!!!",
+  "howToAdd_disclaimer": "We do not accept training event, private event, or any events that not related to tech into our calendar.",
+  "howToSub": "How do I get notified?",
+  "howToSub_step1": "Add ical file into your calendar",
+  "howToSub_step1button": "Get ical",
+  "howToSub_step2": "Allow notification for techcal.dev based on your calendar platform",
+  "close": "Close",
+  "export": "Export"
+}

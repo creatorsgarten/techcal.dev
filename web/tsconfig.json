@@ -19,7 +19,8 @@
       "$functions/*": ["src/functions/*"],
       "$modules/*": ["src/modules/*"],
       "$context/*": ["src/context/*"],
-      "$locale": ["src/locale/index.ts"]
+      "$locale": ["src/locale/index.ts"],
+      "$locale/*": ["src/locale/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
