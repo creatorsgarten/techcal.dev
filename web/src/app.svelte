@@ -37,7 +37,7 @@
 
     if (params.get('capture')) {
       captureMode.set(true)
-      document.body.style.fontFamily = `Inter, Anuphan, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
+      document.body.style.fontFamily = `'Inter Variable', 'Anuphan Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
       const capture = params.get('capture')
       captureEvent.set(await getCalendarEvent(capture!))
     } else if (pathname[0] === 'event' && pathname.length === 2) {

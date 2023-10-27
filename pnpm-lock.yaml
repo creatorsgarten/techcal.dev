@@ -10,6 +10,12 @@ importers:
 
   web:
     dependencies:
+      '@fontsource-variable/anuphan':
+        specifier: ^5.0.8
+        version: 5.0.8
+      '@fontsource-variable/inter':
+        specifier: ^5.0.15
+        version: 5.0.15
       '@fontsource/anuphan':
         specifier: ^5.0.8
         version: 5.0.8
@@ -1649,6 +1655,14 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/anuphan@5.0.8:
+    resolution: {integrity: sha512-h6eyW9OVY8mejA9PCdIDAXKXdthPnr5T6mqjdYyJ/JJigqf6YIWw2zyB/965Vht+mo8RlHO3OoFcQKF5qQhSKg==}
+    dev: false
+
+  /@fontsource-variable/inter@5.0.15:
+    resolution: {integrity: sha512-CdQPQQgOVxg6ifmbrqYZeUqtQf7p2wPn6EvJ4M+vdNnsmYZgYwPPPQDNlIOU7LCUlSGaN26v6H0uA030WKn61g==}
+    dev: false
 
   /@fontsource/anuphan@5.0.8:
     resolution: {integrity: sha512-z+c11UA1QLv+msxhNnU9xRZQsLwsxN46LqH7jKJsszvifbTcMSqHLK+hxrlNNIj8L6mrEM7p59cQ/r3krUFt4Q==}

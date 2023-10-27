@@ -31,8 +31,8 @@
     "zx": "^7.2.3"
   },
   "dependencies": {
-    "@fontsource/anuphan": "^5.0.8",
-    "@fontsource/inter": "^5.0.15",
+    "@fontsource-variable/anuphan": "^5.0.8",
+    "@fontsource-variable/inter": "^5.0.15",
     "autolinker": "^4.0.0",
     "dayjs": "^1.11.10",
     "iconify-icon": "^1.0.8",
