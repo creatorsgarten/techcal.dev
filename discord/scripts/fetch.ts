@@ -34,6 +34,7 @@ type DateOrDateTime =
 interface CalendarItem {
   summary: string
   start: DateOrDateTime
+  status: string
   end: { dateTime: string } | { date: string }
 }
 
@@ -54,6 +55,7 @@ const unixTimestampOf = (dateOrDateTime: DateOrDateTime) => {
 }
 
 const items = data.items
+  .filter(item => item.status !== 'cancelled')
   .map((item) => {
     return {
       date: dateOf(item.start),
