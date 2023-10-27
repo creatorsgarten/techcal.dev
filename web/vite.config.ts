@@ -59,11 +59,6 @@ export default defineConfig(({ command, mode }) => {
           ]
         : []),
     ],
-    resolve: {
-      alias: {
-        '$selectedLang': path.resolve(__dirname, './src/locale/lang', `${env.VITE_LOCALE}.ts`)
-      }
-    },
     build: {
       rollupOptions: {
         output: {

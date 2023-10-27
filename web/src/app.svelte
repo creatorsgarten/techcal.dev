@@ -11,6 +11,7 @@
   let eventModalComponent: Promise<
     typeof import('$modules/eventModal/index.svelte')
   >
+  let localeSelectorComponent: Promise<typeof import('$locale/selector.svelte')>
 
   import { getCalendarEvent } from '$functions/getCalendarEvent'
   import { activeEvent } from '$context/activeEvent'
@@ -25,6 +26,7 @@
   onMount(() => {
     guideComponent = import('$modules/guide/index.svelte')
     eventModalComponent = import('$modules/eventModal/index.svelte')
+    localeSelectorComponent = import('$locale/selector.svelte')
   })
 
   onMount(async () => {
@@ -37,7 +39,7 @@
       captureMode.set(true)
       document.body.style.fontFamily = `Inter, Anuphan, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
       const capture = params.get('capture')
-      captureEvent.set(await getCalendarEvent(capture))
+      captureEvent.set(await getCalendarEvent(capture!))
     } else if (pathname[0] === 'event' && pathname.length === 2) {
       try {
         activeEvent.set(await getCalendarEvent(pathname[1]))
@@ -54,11 +56,22 @@
   {#if !$captureMode}
     <div class="flex justify-between px-2 sm:px-4 py-2 items-center">
       <div>
-        <p>{import.meta.env.VITE_SITE_NAME}</p> 
-        <img src="{import.meta.env.VITE_SITE_NAME === 'thai-tech-calendar' ? 'Logo_th.svg' : 'Logo_in.svg'}" alt="{import.meta.env.VITE_SITE_NAME}" width="40%">
+        <p>{import.meta.env.VITE_SITE_NAME}</p>
+        <img
+          src={import.meta.env.VITE_SITE_NAME === 'thai-tech-calendar'
+            ? 'Logo_th.svg'
+            : 'Logo_in.svg'}
+          alt={import.meta.env.VITE_SITE_NAME}
+          width="40%"
+        />
         <!-- <p class="text-gray-950 pt-1 text-sm sm:text-base">รวม อัพเดท Tech event, Tech Meetup ในไทยไว้ในที่เดียว</p> -->
       </div>
-      <div class="flex items-center ml-2">
+      <div class="flex items-center ml-2 space-x-4">
+        {#if localeSelectorComponent}
+          {#await localeSelectorComponent then { default: LocaleSelector }}
+            <LocaleSelector />
+          {/await}
+        {/if}
         {#if guideComponent}
           {#await guideComponent then { default: Guide }}
             <Guide />

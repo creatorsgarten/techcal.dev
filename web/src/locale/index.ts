@@ -1,7 +1,4 @@
-import selectedLang from '$selectedLang'
+import { _ } from 'svelte-i18n'
 
-import type { LocaleKey } from '../@types/LocaleKey'
-
-export const l = (key: LocaleKey) => {
-  return selectedLang[key]
-}
+export const l = _
+export const defaultLanguage = import.meta.env.VITE_LOCALE
