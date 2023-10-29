@@ -17,19 +17,20 @@ Repo for techcal.dev if you want your country's version just do PR and modify te
 
 1. Set up the prerequisites.
 
-   - Option A: Install [Node.js](https://nodejs.org/en/) (v18+) and [pnpm](https://pnpm.io/).
+   - Option A: Install [Bun](https://bun.sh/).
    - Option B: Install [Devbox](https://www.jetpack.io/devbox) and run `devbox shell` in the project directory.
 
 2. Install dependencies.
 
    ```sh
-    pnpm install
+    bun i
    ```
 
 3. Run the development server.
 
    ```sh
-   pnpm -C web dev
+   cd web
+   bun run dev
    ```
 
 ## How to update the design of Facebook image
