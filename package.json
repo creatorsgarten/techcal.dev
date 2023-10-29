@@ -1,3 +1,17 @@
 {
-  "name": "techcal"
+  "name": "techcal",
+  "version": "1.0.0",
+  "workspaces": [
+    "discord/",
+    "web/",
+    "functions/"
+  ],
+  "dependencies": {
+    "firebase-tools": "^12.7.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6"
+  }
 }

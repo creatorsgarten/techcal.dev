@@ -13,11 +13,7 @@
       ],
       "target": "thailand",
       "public": "web/dist-th",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     },
     {
       "rewrites": [
@@ -32,11 +28,7 @@
       ],
       "target": "indonesia",
       "public": "web/dist-id",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     },
     {
       "rewrites": [
@@ -47,14 +39,11 @@
       ],
       "target": "main",
       "public": "legacy/main",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
     }
   ],
   "functions": {
+    "runtime": "nodejs20",
     "source": "functions"
   }
 }

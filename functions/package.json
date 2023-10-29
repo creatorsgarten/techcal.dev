@@ -1,6 +1,7 @@
 {
-  "name": "functions",
+  "name": "@techcal/functions",
   "description": "Cloud Functions for Firebase",
+  "main": "src/index.js",
   "scripts": {
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
@@ -8,13 +9,10 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
-  "engines": {
-    "node": "18"
-  },
   "dependencies": {
-    "firebase-admin": "11.6.0",
-    "firebase-functions": "4.4.0",
-    "puppeteer": "19.10.1"
+    "firebase-admin": "11.11.0",
+    "firebase-functions": "4.4.1",
+    "puppeteer": "21.4.1"
   },
   "devDependencies": {
     "firebase-functions-test": "3.1.0"

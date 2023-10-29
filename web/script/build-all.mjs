@@ -15,7 +15,7 @@ await Promise.all(
     let region = envFile.replace('.env.', '')
 
     echo`building ${region} region...`
-    await $`pnpm vite build --mode ${region} --outDir dist-${region}`
+    await $`bunx --bun vite build --mode ${region} --outDir dist-${region}`
     echo`built ${region}!`
   })
 )
