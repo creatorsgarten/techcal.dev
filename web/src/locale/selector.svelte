@@ -8,6 +8,7 @@
   import FlagEN from '$modules/icons/flags/en.svelte'
   import FlagTH from '$modules/icons/flags/th.svelte'
   import FlagID from '$modules/icons/flags/id.svelte'
+  import { LocaleManager } from '$functions/localeManager'
 
   const menu = createMenu({ label: 'Language' })
 
@@ -19,7 +20,10 @@
 
   const handleSubmit = (e: Event) => {
     const { selected } = (e as CustomEvent).detail
-    locale.set(languages.find(l => l.text === selected)!.value)
+    const targetLanguage = languages.find(l => l.text === selected)!.value
+
+    LocaleManager.set(targetLanguage)
+    locale.set(targetLanguage)
   }
 
   $: currentLanguage = (
