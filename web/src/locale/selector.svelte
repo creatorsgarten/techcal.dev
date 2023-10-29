@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createMenu } from 'svelte-headlessui'
   import Transition from 'svelte-transition'
-  import { getLocaleFromNavigator, locale } from 'svelte-i18n'
+  import { locale } from 'svelte-i18n'
 
   import { defaultLanguage } from '$locale'
 
