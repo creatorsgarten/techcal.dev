@@ -23,6 +23,8 @@ jobs:
           cd web
           bun run build-ci
           cd ..
+      - name: 'firebase-tools'
+        run: bun add --global firebase-tools
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

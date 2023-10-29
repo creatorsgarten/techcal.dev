@@ -6,10 +6,23 @@
   "scripts": {
     "dev": "vite --mode th --host",
     "build": "vite build --mode th",
-    "build-ci": "zx script/build-all.mjs",
+    "build-ci": "bun script/build-ci.ts",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,svelte}\""
+  },
+  "dependencies": {
+    "@fontsource-variable/anuphan": "^5.0.8",
+    "@fontsource-variable/inter": "^5.0.15",
+    "autolinker": "^4.0.0",
+    "dayjs": "^1.11.10",
+    "iconify-icon": "^1.0.8",
+    "ics": "^3.5.0",
+    "svelte-headlessui": "^0.0.32",
+    "svelte-i18n": "^4.0.0",
+    "svelte-media-queries": "^1.6.2",
+    "svelte-transition": "^0.0.10",
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.1",
@@ -25,20 +38,6 @@
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
     "vite-plugin-pwa": "^0.16.5",
-    "vitest": "^0.34.6",
-    "zx": "^7.2.3"
-  },
-  "dependencies": {
-    "@fontsource-variable/anuphan": "^5.0.8",
-    "@fontsource-variable/inter": "^5.0.15",
-    "autolinker": "^4.0.0",
-    "dayjs": "^1.11.10",
-    "iconify-icon": "^1.0.8",
-    "ics": "^3.5.0",
-    "svelte-headlessui": "^0.0.32",
-    "svelte-i18n": "^4.0.0",
-    "svelte-media-queries": "^1.6.2",
-    "svelte-transition": "^0.0.10",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vitest": "^0.34.6"
   }
 }

@@ -16,21 +16,17 @@ jobs:
     name: Synchronize
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up Bun
+      - uses: actions/checkout@v3
+      - name: bun
         uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-      - name: Install
-        run: bun install
-        working-directory: discord
-      - name: Fetch
+      - name: install
+        run: bun i
+      - name: fetch
         run: bun scripts/fetch.ts
         working-directory: discord
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-      - name: Update
+      - name: update
         run: bun scripts/update.ts
         working-directory: discord
         env:
