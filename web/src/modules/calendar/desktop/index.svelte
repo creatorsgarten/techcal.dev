@@ -1,5 +1,6 @@
 <script lang="ts">
   import Day from './day.svelte'
+  import DayJS from '$functions/dayjs.svelte'
 
   import { getEvents } from '$functions/getEvents'
 
@@ -7,6 +8,7 @@
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
   import { captureMode } from '$context/captureMode'
   import IconifyIcon from '$modules/icons/iconifyIcon.svelte'
+  import dayjs from 'dayjs'
 
   export let calendarDays: Dayjs[]
   export let firstDayOfThisMonth: Dayjs
@@ -16,13 +18,9 @@
 </script>
 
 <header class="col-span-7 grid grid-cols-7 text-center py-1 mt-2">
-  <p>Sun</p>
-  <p>Mon</p>
-  <p>Tue</p>
-  <p>Wed</p>
-  <p>Thu</p>
-  <p>Fri</p>
-  <p>Sat</p>
+  {#each Array(7) as _, i}
+    <p><DayJS date={dayjs().day(i)} format="ddd" /></p>
+  {/each}
 </header>
 <section class="relative mt-4 group">
   <div
