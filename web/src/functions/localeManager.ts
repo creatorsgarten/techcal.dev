@@ -1,23 +1,36 @@
+import dayjs from 'dayjs'
 import { getLocaleFromNavigator } from 'svelte-i18n'
+import { persistentAtom } from '@nanostores/persistent'
+
+import { defaultLanguage } from '$locale'
+import { Locale } from '$types/Locale'
+
+const localStorageKey = 'techcal:locale'
+
+export const localeAtom = persistentAtom(localStorageKey, defaultLanguage)
 
 export class LocaleManager {
-  private static localStorageKey = 'techcal:locale'
-
   public static get() {
-    const localStorageItem = localStorage.getItem(this.localStorageKey)
+    const localStorageItem = localeAtom.get()
 
     if (localStorageItem === null) {
-      const navigatorLocale = getLocaleFromNavigator()
+      let navigatorLocale = getLocaleFromNavigator()
 
-      if (navigatorLocale === null) return null
+      if (navigatorLocale === null) return defaultLanguage
       else {
-        this.set(navigatorLocale)
+        if (navigatorLocale.startsWith('en')) navigatorLocale = Locale.English
+        else if (navigatorLocale.startsWith('id'))
+          navigatorLocale = Locale.Indonesian
+        else if (navigatorLocale.startsWith('th')) navigatorLocale = Locale.Thai
+
+        this.set(navigatorLocale as Locale)
         return navigatorLocale
       }
     } else return localStorageItem
   }
 
-  public static set(locale: string) {
-    localStorage.setItem(this.localStorageKey, locale)
+  public static set(locale: Locale) {
+    dayjs.locale(locale)
+    localeAtom.set(locale)
   }
 }

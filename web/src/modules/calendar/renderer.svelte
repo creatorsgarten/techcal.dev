@@ -2,9 +2,11 @@
   import type { Dayjs } from 'dayjs'
 
   import { getCalendarEvents } from '$functions/getCalendarEvents'
+  import DayJS from '$functions/dayjs.svelte'
 
   import ChevronLeft from '../icons/chevronLeft.svelte'
   import ChevronRight from '../icons/chevronRight.svelte'
+
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
 
   export let onShift: (amount: number) => () => void
@@ -34,8 +36,12 @@
 >
   <div class="flex justify-between px-2">
     <h1 class="text-2xl sm:text-3xl pl-1 sm:pl-0">
-      <span class="font-bold">{firstDayOfThisMonth.format('MMMM')}</span>
-      <span class="font-light">{firstDayOfThisMonth.format('YYYY')}</span>
+      <span class="font-bold"
+        ><DayJS date={firstDayOfThisMonth} format={'MMMM'} /></span
+      >
+      <span class="font-light"
+        ><DayJS date={firstDayOfThisMonth} format={'YYYY'} /></span
+      >
     </h1>
     <div class="flex space-x-2 sm:space-x-4 items-center">
       {#if loading}

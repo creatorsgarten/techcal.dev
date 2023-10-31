@@ -1,5 +1,6 @@
 <script lang="ts">
   import dayjs from 'dayjs'
+  import DayJS from '$functions/dayjs.svelte'
   import type { DayWithTime, FullDay } from '$types/GoogleCalendar'
 
   export let calendarTime: FullDay | DayWithTime
@@ -16,7 +17,8 @@
 </script>
 
 <span
-  >{parsedDate.format(
-    targetFormat === 'singleDay' ? 'DD MMM HH:mm' : 'DD MMM'
-  )}</span
+  ><DayJS
+    date={parsedDate}
+    format={targetFormat === 'singleDay' ? 'DD MMM HH:mm' : 'DD MMM'}
+  /></span
 >

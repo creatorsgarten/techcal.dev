@@ -2,6 +2,7 @@
   import Event from '../../event/index.svelte'
 
   import { getEvents } from '$functions/getEvents'
+  import DayJS from '$functions/dayjs.svelte'
 
   import type { Dayjs } from 'dayjs'
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
@@ -26,13 +27,13 @@
         : 'text-gray-400 dark:text-neutral-400'
     }`}
   >
-    <span>{date.format('ddd')}</span>
+    <span><DayJS {date} format="ddd" /></span>
     <span
       class={`${
         diffFromToday === 0
           ? 'bg-orange-600 text-white rounded-md px-2 py-1'
           : ''
-      }`}>{date.format('D')}</span
+      }`}><DayJS {date} format="D" /></span
     >
   </div>
   <div class="space-y-2 py-2 px-1">

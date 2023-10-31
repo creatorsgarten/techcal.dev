@@ -4,6 +4,7 @@
   import type { Dayjs } from 'dayjs'
   import type { GoogleCalendarItem } from '$types/GoogleCalendar'
   import { captureMode } from '$context/captureMode'
+  import DayJS from '$functions/dayjs.svelte'
 
   export let date: Dayjs
   export let firstDayOfThisMonth: Dayjs
@@ -28,7 +29,7 @@
     } text-right text-sm`}
   >
     {#if date.date() === 1}
-      <span class="font-semibold py-0.5">{date.format('MMMM')}</span>
+      <span class="font-semibold py-0.5"><DayJS {date} format={'MMMM'} /></span>
     {/if}
     <span
       class={diffFromToday === 0 && !$captureMode

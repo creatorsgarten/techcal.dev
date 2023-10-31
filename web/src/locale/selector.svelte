@@ -9,13 +9,14 @@
   import FlagTH from '$modules/icons/flags/th.svelte'
   import FlagID from '$modules/icons/flags/id.svelte'
   import { LocaleManager } from '$functions/localeManager'
+  import { Locale } from '$types/Locale'
 
   const menu = createMenu({ label: 'Language' })
 
   const languages = [
-    { icon: FlagEN, value: 'en', text: 'English' },
-    { icon: FlagTH, value: 'th', text: 'ไทย' },
-    { icon: FlagID, value: 'id', text: 'Bahasa Indonesia' },
+    { icon: FlagEN, value: Locale.English, text: 'English' },
+    { icon: FlagTH, value: Locale.Thai, text: 'ไทย' },
+    { icon: FlagID, value: Locale.Indonesian, text: 'Bahasa Indonesia' },
   ]
 
   const handleSubmit = (e: Event) => {

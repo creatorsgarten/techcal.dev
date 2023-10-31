@@ -1,3 +1,8 @@
+import dayjs from 'dayjs'
+import 'dayjs/locale/th'
+import 'dayjs/locale/en'
+import 'dayjs/locale/id'
+
 import 'iconify-icon'
 import App from './app.svelte'
 
@@ -15,9 +20,11 @@ register('en', () => import('./locale/json/en.json'))
 register('id', () => import('./locale/json/id.json'))
 register('th', () => import('./locale/json/th.json'))
 
+const locale = LocaleManager.get()
+dayjs.locale(locale)
 init({
   fallbackLocale: defaultLanguage,
-  initialLocale: LocaleManager.get(),
+  initialLocale: locale,
 })
 
 const app = new App({
