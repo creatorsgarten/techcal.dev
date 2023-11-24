@@ -41,5 +41,8 @@
     "vite": "^4.5.0",
     "vite-plugin-pwa": "^0.16.5",
     "vitest": "^0.34.6"
+  },
+  "overrides": {
+    "@rollup/plugin-node-resolve": "15.2.3"
   }
 }
