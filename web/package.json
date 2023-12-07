@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@fontsource-variable/anuphan": "5.0.8",
-    "@fontsource-variable/inter": "5.0.15",
+    "@fontsource-variable/inter": "5.0.16",
     "@nanostores/persistent": "0.9.1",
     "autolinker": "4.0.0",
     "dayjs": "1.11.10",
