@@ -10,7 +10,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "firebase-admin": "11.11.1",
+    "firebase-admin": "12.7.0",
     "firebase-functions": "4.5.0",
     "puppeteer": "21.6.0"
   },
