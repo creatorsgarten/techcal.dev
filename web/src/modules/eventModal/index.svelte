@@ -173,6 +173,8 @@
                   </div>
                 {/if}
               </article>
+            {:else}
+              <p class="text-center text-gray-500 dark:text-neutral-400">Loading...</p>
             {/if}
 
             <div class="mt-4 flex justify-end">
