@@ -29,7 +29,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "6.0.1",
     "@sveltejs/vite-plugin-svelte": "3.0.1",
-    "@tsconfig/svelte": "5.0.2",
+    "@tsconfig/svelte": "5.0.8",
     "autoprefixer": "10.4.16",
     "postcss": "8.4.32",
     "rollup-plugin-visualizer": "5.10.0",
