@@ -26,22 +26,17 @@
     "svelte-transition": "0.0.17"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "6.1.0",
     "@sveltejs/vite-plugin-svelte": "7.1.2",
-    "@tailwindcss/vite": "^4.3.0",
+    "@tailwindcss/vite": "4.3.0",
     "@tsconfig/svelte": "5.0.8",
     "rollup-plugin-visualizer": "7.0.1",
     "svelte": "5.55.7",
     "svelte-check": "4.4.8",
-    "tailwindcss": "^4.3.0",
-    "tslib": "2.8.1",
+    "tailwindcss": "4.3.0",
     "typescript": "6.0.3",
     "vite": "8.0.13",
     "vite-plugin-pwa": "0.17.2",
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.6"
-  },
-  "overrides": {
-    "@rollup/plugin-node-resolve": "15.2.3"
   }
 }
