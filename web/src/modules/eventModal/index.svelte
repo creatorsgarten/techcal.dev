@@ -111,10 +111,7 @@
       leaveTo="opacity-0"
     >
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <div
-        class="fixed inset-0 bg-black bg-opacity-25"
-        on:click={dialog.close}
-      />
+      <div class="fixed inset-0 bg-black/25" on:click={dialog.close}></div>
     </Transition>
 
     <div class="fixed inset-0 overflow-y-auto">
@@ -153,7 +150,7 @@
               <Meta {item} />
 
               <article
-                class="overflow-auto mt-2 text-gray-600 dark:text-neutral-100 text-sm break-words"
+                class="overflow-auto mt-2 text-gray-600 dark:text-neutral-100 text-sm wrap-break-word"
               >
                 <div class="whitespace-pre-line">
                   {@html linkify(description)}

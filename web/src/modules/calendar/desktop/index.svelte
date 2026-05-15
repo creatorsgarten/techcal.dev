@@ -24,8 +24,8 @@
 </header>
 <section class="relative mt-4 group">
   <div
-    class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-  />
+    class="absolute -inset-0.5 bg-linear-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
+  ></div>
   <div
     class="grid grid-cols-7 border rounded-xl overflow-hidden bg-white dark:bg-neutral-800 dark:border-neutral-600 relative"
   >

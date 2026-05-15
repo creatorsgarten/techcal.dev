@@ -5,6 +5,7 @@ import 'dayjs/locale/id'
 
 import 'iconify-icon'
 import App from './app.svelte'
+import { mount } from 'svelte'
 
 import '@fontsource-variable/anuphan'
 import '@fontsource-variable/inter'
@@ -29,7 +30,7 @@ const initPromise = init({
 })
 
 Promise.resolve(initPromise).then(() => {
-  new App({
+  mount(App, {
     target: document.getElementById('app')!,
   })
 })

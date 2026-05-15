@@ -19,8 +19,7 @@
     { icon: FlagID, value: Locale.Indonesian, text: 'Bahasa Indonesia' },
   ]
 
-  const handleSubmit = (e: Event) => {
-    const { selected } = (e as CustomEvent).detail
+  const handleSubmit = (selected: string) => {
     const targetLanguage = languages.find(l => l.text === selected)!.value
 
     LocaleManager.set(targetLanguage)
@@ -36,12 +35,7 @@
 </script>
 
 <div>
-  <button
-    use:menu.button
-    on:select={handleSubmit}
-    aria-label="Help"
-    class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-xl border-b-4 border-b-gray-300 shrink-0 dark:bg-neutral-700 dark:border-b-neutral-800"
-  >
+  <button use:menu.button aria-label="Language" class="square-btn">
     <svelte:component this={currentIcon} class="w-6 h-6" />
   </button>
 
@@ -57,7 +51,7 @@
     >
       <div
         use:menu.items
-        class="absolute right-0 mt-2 p-2 w-48 origin-top-right rounded-xl dark:text-white dark:bg-neutral-700 text-gray-900 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        class="absolute right-0 mt-2 p-2 w-48 origin-top-right rounded-xl dark:text-white dark:bg-neutral-700 text-gray-900 bg-white shadow-lg focus:outline-none border-neutral-200"
       >
         {#each languages as language}
           {@const active =
@@ -65,13 +59,14 @@
             language.value === currentLanguage}
           <button
             use:menu.item
-            class="group flex rounded-md items-center w-full px-2 py-2 text-sm space-x-2"
+            on:click={() => handleSubmit(language.text)}
+            class="group flex rounded-md items-center w-full px-2 py-2 text-sm space-x-2 cursor-pointer"
           >
             <div
               class={`w-1 h-4 rounded-full ${
                 active ? 'bg-blue-950 dark:bg-blue-400' : 'bg-transparent'
               }`}
-            />
+            ></div>
             <svelte:component this={language.icon} class="w-5 h-5" {active} />
             <span>{language.text}</span>
           </button>

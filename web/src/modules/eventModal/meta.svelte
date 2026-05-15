@@ -41,4 +41,4 @@
   </div>
 </section>
 
-<div class="w-full border-b dark:border-neutral-600 my-3" />
+<div class="w-full border-b dark:border-neutral-600 my-3"></div>

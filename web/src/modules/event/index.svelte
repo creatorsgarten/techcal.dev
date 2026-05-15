@@ -20,8 +20,8 @@
   $: color = captureHighlighted
     ? 'bg-yellow-200 text-yellow-950 border-orange-500'
     : tentative
-    ? `border-neutral-950 text-neutral-950 dark:text-neutral-50 dark:border-neutral-400 bg-neutral-100 dark:bg-neutral-500/40`
-    : `border-blue-950 text-blue-950 dark:text-blue-50 dark:border-blue-400 bg-blue-100 dark:bg-blue-500/40`
+      ? `border-neutral-950 text-neutral-950 dark:text-neutral-50 dark:border-neutral-400 bg-neutral-100 dark:bg-neutral-500/40`
+      : `border-blue-950 text-blue-950 dark:text-blue-50 dark:border-blue-400 bg-blue-100 dark:bg-blue-500/40`
   $: opacity = dayDiff < 0 ? 'opacity-50' : tentative ? 'opacity-75' : ''
 
   let onOpen = () => {

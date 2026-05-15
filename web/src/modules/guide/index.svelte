@@ -10,11 +10,7 @@
 </script>
 
 <div>
-  <button
-    on:click={dialog.open}
-    aria-label="Help"
-    class="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-xl border-b-4 border-b-gray-300 shrink-0 dark:bg-neutral-700 dark:border-b-neutral-800"
-  >
+  <button on:click={dialog.open} aria-label="Help" class="square-btn">
     <QuestionMark class="w-6 h-6 text-gray-950 dark:text-white" />
   </button>
 
@@ -29,10 +25,7 @@
         leaveTo="opacity-0"
       >
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div
-          class="fixed inset-0 bg-black bg-opacity-25"
-          on:click={dialog.close}
-        />
+        <div class="fixed inset-0 bg-black/25" on:click={dialog.close}></div>
       </Transition>
 
       <div class="fixed inset-0 overflow-y-auto">

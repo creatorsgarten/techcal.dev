@@ -5,4 +5,4 @@
   $: iconString = typeof icon === 'string' ? icon : JSON.stringify(icon)
 </script>
 
-<iconify-icon icon={iconString} {...$$restProps} />
+<iconify-icon icon={iconString} {...$$restProps}></iconify-icon>
