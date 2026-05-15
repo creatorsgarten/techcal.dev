@@ -13,6 +13,6 @@
     "prettier-plugin-tailwindcss": "0.8.0"
   },
   "overrides": {
-    "@rollup/plugin-node-resolve": "15.2.3"
+    "@rollup/plugin-node-resolve": "15.3.1"
   }
 }
