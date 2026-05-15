@@ -14,7 +14,7 @@
   "dependencies": {
     "@fontsource-variable/anuphan": "5.2.8",
     "@fontsource-variable/inter": "5.2.8",
-    "@nanostores/persistent": "0.9.1",
+    "@nanostores/persistent": "0.10.2",
     "autolinker": "4.1.5",
     "dayjs": "1.11.20",
     "iconify-icon": "1.0.8",
