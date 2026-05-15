@@ -22,13 +22,14 @@ register('th', () => import('./locale/json/th.json'))
 
 const locale = LocaleManager.get()
 dayjs.locale(locale)
-init({
+
+const initPromise = init({
   fallbackLocale: defaultLanguage,
   initialLocale: locale,
 })
 
-const app = new App({
-  target: document.getElementById('app')!,
+Promise.resolve(initPromise).then(() => {
+  new App({
+    target: document.getElementById('app')!,
+  })
 })
-
-export default app
